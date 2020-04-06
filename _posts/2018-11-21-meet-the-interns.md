@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Meet the Interns!
+title: "Meet the Interns!"
+date: 2018-11-21 07:59:00 +1100
 ---
 
 Apologies for the delay in getting this first post out. Maybe one day I'll be able to use vim to work faster, but at the moment, it's my excuse for the delayed blog post. Anyway, behold, the MYOB Intern Developers:  
