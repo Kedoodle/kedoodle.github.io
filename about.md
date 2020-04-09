@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /about
 ---
 
 I'm Keddy Shen, a software developer born in Auckland, New Zealand and currently living in Melbourne, Australia. I started my career interning at [MYOB](MYOB Technology) and have been coding since 2018. There's not a lot to say about me so far.
