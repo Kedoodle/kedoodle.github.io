@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Meet the Interns!"
+title: "Meet the interns"
 date: 2018-11-21 07:59:00 +1100
 ---
 
