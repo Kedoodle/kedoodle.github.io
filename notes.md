@@ -10,11 +10,11 @@ I'll be writing notes here on some of the resources and experiences along my jou
 
 | Title | Author | Notes |
 | ------ | ------ | --------- |
-| [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.goodreads.com/book/show/3735293-clean-code) | Robert C. Martin | [Incomplete](books/clean-code) |
+| [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.goodreads.com/book/show/3735293-clean-code) | Robert C. Martin | [Incomplete](/notes/books/clean-code) |
 
 
 # Pluralsight
 
 | Course | Author | Notes |
 | ------ | ------ | --------- |
-| [Testing .NET Code with xUnit.net: Getting Started](https://app.pluralsight.com/library/courses/dotnet-core-testing-code-xunit-dotnet-getting-started/table-of-contents) | Jason Roberts | [14 April 2020](pluralsight/dotnet-core-testing-code-xunit-dotnet-getting-started) |
+| [Testing .NET Code with xUnit.net: Getting Started](https://app.pluralsight.com/library/courses/dotnet-core-testing-code-xunit-dotnet-getting-started/table-of-contents) | Jason Roberts | [14 April 2020](/notes/pluralsight/dotnet-core-testing-code-xunit-dotnet-getting-started) |
