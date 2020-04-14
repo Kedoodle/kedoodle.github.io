@@ -28,6 +28,15 @@ The key to clean code is not only to write it well to begin with - we must also 
 
 # Chapter 2: Meaningful Names
 
+Meaniningful names are all about revealing intent. Names should be used to be explicit such that the reader does not have to question such things as why it exists, what it does, and how it is used. It takes time to choose a good name, but it is worth the time saved when later maintaining the code. Replace names when a better one is found.
+
+It is easy to mislead and provide disinformation with bad naming. Common abbreviations and programmer specific terms should be avoided when they do not apply e.g. a variable for a collection of objects should not include `List` in the name unless it is actually a `List` object.
+
+Names should not be too similar to one another. This not only avoids extra time spent by the programmer to distinguish them, but also minimises the chance of using the wrong object or method.
+
+While a compiler may accept meaningless or misspelled names, they can cause confusion later down the track. Do not purposefully misspell or add noise to a name simply because the name you wanted to use already exists e.g. using `a1` and `a2` provide no information as to what they are.
+
+Names should ideally be able to be pronounced. This makes them easier to mentally process, but more importantly, empowers discussion and collaboration. It is much easier to refer to `startTimestamp` than `startyyyymmdd`.
 
 # Chapter 3: Functions
 
