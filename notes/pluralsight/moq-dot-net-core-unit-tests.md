@@ -150,3 +150,18 @@ When properties are nested within other properties, our mocking setup can be sim
 We can change the default behaviour which Moq exhibits for loose mocks by setting the `DefaultValue` property. By default, Moq uses `DefaultValue.Empty`, which returns empty values for value types, arrays, and enumerables, and nulls for other reference types. We can change this to `DefaultValue.Mock`, which instructs Moq to create mocks in place of using nulls if the type can be mocked.
 
 To instruct Moq to track changes on the value of a property during test execution, we call `SetupProperty` and use a lambda function to specify which property we wish to track e.g. `mockExample.SetupProperty(x => x.PropertyExample);`. Alternatively, `SetupAllProperties` will enable tracking changes on all properties for the mock.
+
+
+# Behaviour verification
+
+When we make assertions against the system under test, we are testing the state of the system after it has completed certain behaviours. This is state based testing as we are looking at the resulting state of the system to determine whether the test should pass.
+
+Behaviour based testing will instead check if the expected methods and properties are called and accessed. We are testing the interactions of the system with its dependencies. We often do this when our dependency has no exposed state to test against, and we instead verify that a certain thing has occurred.
+
+Moq allows verification of method calls through the `Verify` method, specifying the method we're checking through a lambda function e.g. `mockExample.Verify(x => x.MethodExample("A string parameter example"));`. We can also argument match our method parameters using `It.IsAny` e.g. `It.IsAny<string>`. The `Verify` method has an overload which allows us to specify the failure message displayed when the verification fails.
+
+We can specify how many times we expect a method to be called using the `Times` struct. By default, `Verify` checks that a method is called at least once. An example to verify that a method was not called at all: `mockExample.Verify(x => x.MethodExample("A string parameter example"), Times.Never);`
+
+To verify that property getters are being called, Moq has the `VerifyGet` methods on mock objects. This is used similarly to the `Verify` method for method invocation verification.
+
+For property setters, the `VerifySet` method checks if the property is set to the expected value e.g. `mockExample.VerifySet(x => x.PropertyExample = "An expected value");`. We can also use the `It` feature if we want to be less strict about what the actual value is.
