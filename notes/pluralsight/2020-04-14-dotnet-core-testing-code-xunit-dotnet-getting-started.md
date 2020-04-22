@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Testing .NET Code with xUnit.net: Getting Started"
-date: 2020-04-14 12:06:00 +1100
+date: 2020-04-14
 permalink: /notes/pluralsight/dotnet-core-testing-code-xunit-dotnet-getting-started
 ---
 
