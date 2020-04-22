@@ -92,7 +92,7 @@ public class SystemExampleShould
 ```
 
 
-# Configuring mock objects
+# Mocking methods
 
 We can choose what the mock object methods return using the `Setup` method. By default, `bool` return types will return `false`.
 
@@ -129,3 +129,24 @@ Moq mock objects by default are loose. This means that they will not throw an ex
 We can alternatively instruct the mock object to be strict by specifying `MockBehavior.Strict` as a parameter when creating a the mock object. A `MockException` would be thrown on any invocations on the mock that do not have a corresponding setup.
 
 Loose mocks have less setup code due to their default value. This makes them less brittle in that they are less likely to break when implementation details are changed. Strict mocks should only be used when necessary, with loose mocks preferred for their ease of use.
+
+
+# Mocking properties
+
+In addition to methods, dependencies can also have properties. Mock objects can be configured to return specific values for properties - either hard coded or from return values. Mock objects can also track their property values over time.
+
+To configure the return value for a property getter, simply use the `Returns` method similar to when configuring a method return value. For example, `mockExample.Setup(x => x.PropertyExample).Returns("An example string!");`
+
+We can also use a function return value instead of a hard coded value: `mockExample.Setup(x => x.PropertyExample).Returns(FunctionExample);` with `FunctionExample` defined within the same class:
+```csharp
+string FunctionExample()
+{
+    return "An example string!";
+}
+```
+
+When properties are nested within other properties, our mocking setup can be simplified by navigating through the properties within the `Setup` method. Moq will then automatically create mocks for the inner properties. For example, `mockExample.Setup(x => x.ParentPropertyExample.NestedPropertyExample).Returns("An example string!");` would avoid us having to create `ParentPropertyExample` mock with the `NestedPropertyExample` property setup to return `"An example string!"`. Instead, Moq does this for us implicitly.
+
+We can change the default behaviour which Moq exhibits for loose mocks by setting the `DefaultValue` property. By default, Moq uses `DefaultValue.Empty`, which returns empty values for value types, arrays, and enumerables, and nulls for other reference types. We can change this to `DefaultValue.Mock`, which instructs Moq to create mocks in place of using nulls if the type can be mocked.
+
+To instruct Moq to track changes on the value of a property during test execution, we call `SetupProperty` and use a lambda function to specify which property we wish to track e.g. `mockExample.SetupProperty(x => x.PropertyExample);`. Alternatively, `SetupAllProperties` will enable tracking changes on all properties for the mock.
