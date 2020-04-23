@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mocking in .NET Core Unit Tests with Moq: Getting Started"
-date: 
+date: 2020-04-23
 permalink: /notes/pluralsight/moq-dot-net-core-unit-tests
 ---
 
@@ -165,3 +165,59 @@ We can specify how many times we expect a method to be called using the `Times` 
 To verify that property getters are being called, Moq has the `VerifyGet` methods on mock objects. This is used similarly to the `Verify` method for method invocation verification.
 
 For property setters, the `VerifySet` method checks if the property is set to the expected value e.g. `mockExample.VerifySet(x => x.PropertyExample = "An expected value");`. We can also use the `It` feature if we want to be less strict about what the actual value is.
+
+
+# Mock exception throwing
+
+Our mock objects can be set up to throw exceptions when a mocked method is called with certain or all parameters. This can be done using the `Throws` method and specifying the exception type:
+```csharp
+mockExample.Setup(x => x.Foo()).Throws<Exception>();
+```
+
+Alternatively, an exact exception instance can be given:
+```csharp
+mockExample.Setup(x => x.Foo()).Throws(new Exception("Message example"));
+```
+
+
+# Mock event raising
+
+A manual event can be raised using the `Raise` method on a mock object. An event can also be automatically raised by chaining the `Raise` method to the `Setup` for the mock method.
+
+
+# Different return values for same method
+
+Using the `SetupSequence` method instead of the `Setup` method allows us to return different values for each addition invocation of the mocked method. We simply chain several `Returns` methods to the end of the `SetupSequence`. For example, we can have a method which returns `true` for the first invocation and `false` for the second like so:
+```csharp
+mockExample.SetupSequence(x => x.Foo())
+    .Returns(true)
+    .Returns(false);
+```
+
+
+# Mocking concrete classes
+
+Sometimes it isn't feasible or desired to create an interface solely for the purposes of being able to mock the class. We are able to mock the methods within concrete classes by specifying those methods as `virtual` in order to allow Moq to override the method in the mock object.
+
+We can mock protected virtual methods by referencing `using Moq.Protected` and accessing the `Protected` extension method at the beginning of the configuration. The method details and argument matching syntax are slightly different than for mocking regular methods:
+```csharp
+mockExample.Protected()
+    .Setup<bool>("Foo", ItExpr.IsAny<string>())
+    .Returns(true);
+```
+
+
+# LINQ to Mocks
+
+Moq allows for specifying mock behaviours using declarative specification queries. LINQ to Mocks can make mocking much cleaner and readable, especially when there is a lot of setup to do on the mock object.
+
+To create a mock object using LINQ to Mocks, instead of using `new Mock<T>()`, we use `Mock.Of<T>`. This creates a mock of type `T`, so we no longer need to use the `Object` property when passing the mock as a parameter. Instead of using the `Returns` method, we simply use the `==` operator. For each additional configuration, we logical `&&` and add our desired configuration:
+```csharp
+var mockDependencyExample = Mock.Of<IDependencyExample>(
+    x =>
+    x.Foo(1) == true &&
+    x.Foo(0) == false;
+)
+```
+
+Finally, should we need to verify invocations on a dependency created using LINQ to Mocks, we can use the `Mock.Get()` method to retrieve the mock object which allows the `Verify` method to be called.
