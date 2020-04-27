@@ -58,3 +58,63 @@ The intent should be so obvious that developers new to the team are able to read
 
 
 # Naming
+
+Naming aids in our ability to understand the programmer's intent. If authors used random one-letter abbreviations throughout their novels, we would have difficulty understanding what their intent was - we might be able to figure it out using the context around these abbreviations, but it would be much simpler to understand if the words simply were not abbreviated, thereby reducing unnecessary cognitive load. Even worse are names which are misleading. 
+
+Poor name classes are magnets for throwing code into. When we can't be bothered determining where code should go, they end up in poorly named classes. These classes become huge and cumbersome to maintain - we have no idea why they exist and what they do. Classes should have a single responsibility, and the name of the class should reflect that. Good class names are usually nouns, not verbs. They are things that we can instantiate. Specific names are better, and lead to classes that are smaller and more cohesive.
+
+If we're stuck with coming up with a good name, verbalising can help. The rubber ducking technique involves talking through what our problem is and will often lead to coming up with a solution ourselves while explaining the problem. This is because verbalising aids creativity.
+
+Names are there to be honoured. Our methods should avoid side effects. For example, `CheckPassword` should do exactly that. We don't expect `CheckPassword` to also log users out. In this instance, if the method were to also log users out, the name would be misleading and lie to the reader. Our method names should be comprehensive and tell the whole truth rather than hide the truth inside its contents.
+
+There are some smells relating to poor names. If we find ourselves including words like `And`, `If`, or `Or` inside our method names, it is a sign that the method is doing more than one thing. In these instances, we should separate these actions into two or more methods.
+
+Abbreviations used to be used out of necessity - storage was expensive and limited. With modern computers, we no longer have to abbreviate our code. We have ample storage and IDEs have features which afford us the luxury of long, descriptive names. We can type the first few characters and our IDEs display the appropriate items. The problem with abbreviations is that they are ambiguous; there is exists no universal set of abbreviations. Another issue with abbreviations is that they're hard to pronounce, hindering our inner mind "reading" the code as well as our ability to discuss code with the team.
+
+Well-named booleans should sound like they are asking a true or false question. Clean boolean names read very naturally, for example `IsOpen`, `Done`, `LoggedIn`. This becomes especially clear when the boolean is used in context as a predicate:
+```csharp
+if (LoggedIn)
+{
+    // do something
+}
+```
+
+When we are working with opposites, our names should be symmetrical to aid understandability and relatedness. For example, if we are defining speed, `min` and `max` are much better than `slow` and `max`. Asymmetrical names can be difficult and confusing to work with: `on` and `disable`. What do these mean? Are they even related?
+
+
+# Conditionals
+
+Conditionals should clearly convey intent. We can quite easily see when there is a fork in the execution path, but often we aren't able to understand why these conditionals exist and why we are choosing one path over another. 
+
+Booleans should be compared implicitly. There is no need to explicitly check for equality to `true` or `false` e.g. `if (LoggedIn == true)`. By omitting this check, the statement reads more like plain English. Boolean assignments, where possible, should also be done implicitly. The following code explicitly assigns a boolean:
+```csharp
+bool havingIceCream;
+if (bankAccountBalance > 5)
+{
+    havingIceCream = true;
+}
+else
+{
+    havingIceCream = false;
+}
+```
+Contrasting this with `bool havingIceCream = bankAccountBalance > 5;`, we can see a number of advantages of the implicit assignment. There is no need to declare the variable first and then assign it. There is a lot less code and room for error - we only need to write the variable name once instead of three times. Finally, the code spoken aloud a lot easier in one fluid motion.
+
+Use positive conditionals. Avoid double negatives. `if (!IsNotLoggedIn)` has increased cognitive load and reduced readability compared to `if (LoggedIn)`.
+
+The ternary operator should be used for the same reasons as implicit boolean assignments. These lines of code are cumbersome compared to `int iceCreamPrice = isEmployee ? 0 : 5;`:
+```csharp
+int iceCreamPrice;
+if (isEmployee)
+{
+    iceCreamPrice = 0;
+}
+else
+{
+    iceCreamPrice = 5;
+}
+```
+
+Conditionals should be strongly typed instead of using string literals. This reduces opportunity for mistyping and the resulting bugs. For example, using `if (obstacle == "boulder")` can cause issues like misspelling `bolder` or casing `BOULDER`. By using `if (obstacle == ObstacleType.Boulder)`, we can define the different types of obstacles once and let our IDE do the memorisation and filling for us. Another advantage is that we define only the valid states - in this case, the different types of obstacles. We are not able to check if the obstacle is a `ObstacleType.Tree` if we do not define `Tree` within the `ObstacleType` enum. People new to the code base are able to get a feel for what the various `ObstacleType` values can be. They can also be more easily searched as they are definitive and unambiguous. 
+
+Magic numbers should also be avoided for similar reasons. They require careful inference and use of the surrounding context in order to understand. We can alleviate this need, and opportunity for error, by defining the numbers as constants. `if (age > 18)` requires the reader to understand the significance of the age 18, whereas defining `const int legalDrinkingAge = 18` and using `if (age > legalDrinkingAge)` removes such need. It is explicit in why the condition exists. Enums can also be used instead of magic numbers - a common use case for enums is to store status or error codes.
