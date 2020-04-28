@@ -86,6 +86,11 @@ When we are working with opposites, our names should be symmetrical to aid under
 
 Conditionals should clearly convey intent. We can quite easily see when there is a fork in the execution path, but often we aren't able to understand why these conditionals exist and why we are choosing one path over another. 
 
+Use positive conditionals. Avoid double negatives. `if (!IsNotLoggedIn)` has increased cognitive load and reduced readability compared to `if (LoggedIn)`.
+
+
+# Implicit comparisons and assignments
+
 Booleans should be compared implicitly. There is no need to explicitly check for equality to `true` or `false` e.g. `if (LoggedIn == true)`. By omitting this check, the statement reads more like plain English. Boolean assignments, where possible, should also be done implicitly. The following code explicitly assigns a boolean:
 ```csharp
 bool havingIceCream;
@@ -100,8 +105,6 @@ else
 ```
 Contrasting this with `bool havingIceCream = bankAccountBalance > 5;`, we can see a number of advantages of the implicit assignment. There is no need to declare the variable first and then assign it. There is a lot less code and room for error - we only need to write the variable name once instead of three times. Finally, the code spoken aloud a lot easier in one fluid motion.
 
-Use positive conditionals. Avoid double negatives. `if (!IsNotLoggedIn)` has increased cognitive load and reduced readability compared to `if (LoggedIn)`.
-
 The ternary operator should be used for the same reasons as implicit boolean assignments. These lines of code are cumbersome compared to `int iceCreamPrice = isEmployee ? 0 : 5;`:
 ```csharp
 int iceCreamPrice;
@@ -115,6 +118,67 @@ else
 }
 ```
 
+# Avoid magic strings and numbers
+
 Conditionals should be strongly typed instead of using string literals. This reduces opportunity for mistyping and the resulting bugs. For example, using `if (obstacle == "boulder")` can cause issues like misspelling `bolder` or casing `BOULDER`. By using `if (obstacle == ObstacleType.Boulder)`, we can define the different types of obstacles once and let our IDE do the memorisation and filling for us. Another advantage is that we define only the valid states - in this case, the different types of obstacles. We are not able to check if the obstacle is a `ObstacleType.Tree` if we do not define `Tree` within the `ObstacleType` enum. People new to the code base are able to get a feel for what the various `ObstacleType` values can be. They can also be more easily searched as they are definitive and unambiguous. 
 
 Magic numbers should also be avoided for similar reasons. They require careful inference and use of the surrounding context in order to understand. We can alleviate this need, and opportunity for error, by defining the numbers as constants. `if (age > 18)` requires the reader to understand the significance of the age 18, whereas defining `const int legalDrinkingAge = 18` and using `if (age > legalDrinkingAge)` removes such need. It is explicit in why the condition exists. Enums can also be used instead of magic numbers - a common use case for enums is to store status or error codes.
+
+
+# Intermediate variables and encapsulation of conditionals
+
+When conditionals become complex with several booleans linked together by logical `&&` and `||` operators, we can simplify them and clear up their intention by using intermediate variables and method encapsulation.
+
+An intermediate variable is assigned the value of the result of the entire predicate. For example, the following conditional could use an intermediate variable instead, which removes the need for the reader to infer that the conditional is checking to see if the employee is eligible for employer super guarantee contributions.
+```csharp
+if (employee.Age >= 18
+    && employee.GrossMonthlyIncome >= 450
+    && employee.TFN != null)
+{
+    // do something
+}
+```
+The intermediate variable might look something like this:
+```csharp
+bool isEligibleForSuperannuation = employee.Age >= 18
+    && employee.GrossMonthlyIncome >= 450
+    && employee.TFN != null;
+```
+
+We can also encapsulate complex conditionals by extracting them into methods. Within these methods, pass parameters and use well-named intermediate variables to determine the final `bool` return value. These layers of abstraction make reading through the code much smoother and allow the reader to avoid reading lines that they do not need to (especially when they're looking for something else entirely).
+
+
+# Polymorphism over enums
+
+Polymorphism can be used when we notice several repeated switch statements within our code. We can create an `abstract` base class and create several derived classes to eliminate switching logic. This is because each derived class knows exactly what to do based on the previous switch condition.
+
+
+# Declarative over imperative
+
+We should favour being declarative when possible. LINQ makes it possible to remove the need for many looping structures and intermediate storage vessels in C#. For example, we do not need to loop through a list of `Fruit` objects in order to get all of the rotten bananas as we would below:
+```csharp
+List<Fruit> rottenBananas = new List<Fruit>();
+
+foreach (var fruit in fruits)
+{
+    if (fruit.IsRotten && fruit.IsBanana)
+    {
+        rottenBananas.Add(fruit);
+    }
+}
+
+return rottenBananas;
+```
+Instead, we can be declarative and expressive by simply stating what it is we want - all of the rotten bananas.
+```csharp
+return fruits
+    .Where(f => f.IsRotten)
+    .Where(f => f.IsBanana);
+```
+
+
+# Table driven methods
+
+Sometimes, writing more code is not the right solution to our problem. Avoid hard coding values into our code with complex nested `else if` statements. Generally, these statements signal that the data would be better stored in an external database. Think insurance premiums for different ages - each time we want to update the premiums, we would have to release a new build of our application. Instead, we can store the premiums and ages in a database and have our code retrieve the values when needed. This way, we can change premiums in our database and our application will retrieve those new values the next time it calculates a premium. 
+
+
