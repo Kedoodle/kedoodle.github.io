@@ -182,3 +182,43 @@ return fruits
 Sometimes, writing more code is not the right solution to our problem. Avoid hard coding values into our code with complex nested `else if` statements. Generally, these statements signal that the data would be better stored in an external database. Think insurance premiums for different ages - each time we want to update the premiums, we would have to release a new build of our application. Instead, we can store the premiums and ages in a database and have our code retrieve the values when needed. This way, we can change premiums in our database and our application will retrieve those new values the next time it calculates a premium. 
 
 
+# Why create functions?
+
+Functions are able to organise code into small, targeted pieces, that are able to be called by name. They act like paragraphs in a book, but for code. There are several reasons why we might create a function:
+
+1. **Duplication**: In order to adhere to the DRY principle, we can extract repeated code into a function which can then be called multiple times.
+2. **Indentation**: Several levels of indentation make code hard to read and maintain. The arrow shaped code formed by excessive indentation is caused by having too many distinct paths through the method. Comprehension decreases beyond three levels of nested `if` blocks. We can alleviate this issue by extracting methods (creating different layers of abstraction), failing fast (throw an exception as soon as an unexpected situation which can't be handled occurs), and returning early (return as soon as we know when something is valid or invalid).
+3. **Unclear intent**: When our code logic is hard to understand by reading alone, we can create a well-named function which describes what exactly is happening. This also creates another layer of abstraction, aiding speed reading and finding the right pieces of code during maintenance work.
+4. **More than one task**: Methods should do one thing only, and do it well. If we find our methods doing several things, we can extract these things into separate functions and call these functions instead. Small, focused functions help aid reading, promote reuse, eases naming and testing, and avoids side-effects.
+
+
+# Mayfly variables
+
+Variables should be defined when they are needed. If we were to define variables all in one place, it creates undue cognitive load on the reader in the form of having to remember all of the information upfront. Remember the rule of 7 for the number of items the human brain can keep in short term memory at any one time. Without any of the surrounding context, the variables are meaningless. 
+
+Mayflies are organisms with really short lifespans. We want our variables to live only in the scope they are needed, and be left behind once no longer in use. This aids refactoring as we no longer need to consider the implications of every variable on the entire scope of the function. We can create mayfly variables by initialising them just-in-time.
+
+
+# Less parameters is more
+
+We should strive for 0-2 parameters. This makes code easier to read, understand, and test because the function is doing less. Separate concerns should not be passed into the function as parameters. Flag arguments are a clear sign that we are doing more than one thing.
+
+
+# Signs that a method is too long
+
+Functions should rarely be longer than 20 lines of code, and almost never over 100 lines. They should also very rarely have more than 3 parameters. Some more specific smells of a function that is becoming too long:
+- The method starts needing whitespace newlines and comments to split pieces of logic. Sometimes newlines and comments are necessary, but too many can be a smell that the method is too long.
+- If the method requires scrolling through and doesn't fit on the screen, this is a clear indicator. We want our reader to be able to read one autonomous piece of code without having to keep too many things in memory.
+- When it becomes difficult to name a function based on what it does, we should check to ensure that it isn't doing more than one thing and refactor into separate functions if needed.
+- Complex conditionals should be extracted out to a separate function, providing a clear intent for what needs to be done based on the condition.
+- Several layers of abstraction are present. This makes the code harder to digest. We can extract things out to keep the method in one layer of abstraction and aid readability.
+
+
+# Handling exceptions
+
+There are three types of exceptions, generally speaking - unrecoverable, recoverable, and ignorable. Unrecoverable exceptions include null reference, file not found, and access denied. A recoverable exception could be something like error connecting, in which case we can just try again. An ignorable exception could simply be something which isn't imperative, like a failed logging of a click.
+
+We should only catch exceptions which we can handle. If we can't handle the exception, let the application fail hard and fast. It is dangerous to let the application keep running in an inconsistent state, as it could compromise data, itself, and users.
+
+The body of a `try` block in a `try-catch` statement should be extracted out into its own function, making it clear what is being attempted, and what handling should happen if unsuccessful. 
+
