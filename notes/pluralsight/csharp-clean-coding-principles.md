@@ -246,3 +246,23 @@ Reading is naturally done top to bottom. We can aid readability by placing relat
 # The outline rule
 
 Our code should have multiple levels of abstraction so that it looks like an outline. We can then read code at our desired level of abstraction, and only at the lowest level do we see the actual implementation details. 
+
+
+# Comments
+
+Over-reliance on comments is a code smell. Often, alternatives are better and comments should only be used after considering such alternatives. The existence of comments should be justifiable. Comments can lie when they are not up to date, be redundant, and be a crutch for bad code. That's not to say that comments don't have their place.
+
+Comments are both a necessity and a crutch, but generally we should prefer expressive code over comments. This leads to code which is self-documenting, and the code is more likely to be updated. It is the only source of truth which can be relied upon. If code is changed but the associated comment is not, then we can only tell what is happening by referring to the code. When the code is insufficient in providing the necessary documentation, then a comment is appropriate.
+
+Comments to avoid:
+1. **Redundant**: These comments repeat exactly what the code is doing e.g. `var iceCream = new Dessert(); // Instantiate a dessert` or `int i = 0; // Set i to 0`. These comments circumvent the DRY principle and create additional noise which needs to be maintained for no value added. We can assume that the reader is capable of reading code.
+2. **Intent**: We can often eliminate comments like `// Check if the ice cream has melted` associated with code `if (dessert.State == 1)` by using well-named constants or enums. Consider `if (dessert.State == State.Melted)` instead. Improved naming, intermediate variables, declaring constants or enums, and extracting conditionals to functions are some of the ways we can avoid intent comments.
+3. **Apology**: These comments are excuses for bad code. Instead of making apologetic comments, fix the code before committing or merging or add a `TODO` marker comment if absolutely unable to do so immediately.
+4. **Warning**: Often a sign that an area of code needs to be refactored. These are even worse than apology comments because they signal bad code ahead, but do nothing about it and also don't apologise for it. They often exist in the form of `// Don't even bother below - talk to Bob the Builder`, which further discourages the fixing of the code.
+5. **Zombie code**: Half-baked code existing in the form of comments disrupts flow and creates questions around why it even exists. It is ambiguous. We become reluctant to touch it because we don't know if the coder that left the comment still wants it. Often zombie code comments exist because developers are wanting to keep it there as a fail-safe in case the new changes don't work. The issue is that the comment creates a liability - more code to maintain. Source control has already solved the need for keeping old code intact - we can simply revert back to previous versions of code in our source control.
+6. **Divider**: Using comments as signposts for blocks of code within a method shows that the function is probably too long. Consider extracting methods and breaking the function into smaller pieces instead.
+7. **Brace tracker**: Using comments to tell us what closing braces are closing is another smell for the need to refactor code. We should extract out functions to aid readability and reduce cyclomatic complexity.
+8. **Bloated header**: Boilerplate headers with filenames, authors, and creation dates are unnecessary stores of information. The filename exists as part of the file, and so do the author and modification timestamps in source control. Having block style headers with aligned characters at the end of each line to border the header just creates more maintenance work. 
+9. **Defect log**: There is no need to comment where code has changed and for what reason. These comments are redundant as the information exists in source control. We can see where code changes and for what reason by simply looking at commits. The reader does not need to know that there existed a bug which was fixed 3 years ago.
+
+Some comments are good. Short-lived `TODO` comments make it easy for developers to reach parts of the code where they want to do some additional work, but they should be used sparingly. Often there are well-meaning developers that sprawl `TODO` comments everywhere but never have the time to get around to them. Summary comments are great for providing a high-level overview of what the reader should expect to soon see, but they should only be used to add context when well-named classes and methods alone are not enough to convey intent.
