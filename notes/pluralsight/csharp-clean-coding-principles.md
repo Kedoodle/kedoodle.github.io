@@ -222,3 +222,27 @@ We should only catch exceptions which we can handle. If we can't handle the exce
 
 The body of a `try` block in a `try-catch` statement should be extracted out into its own function, making it clear what is being attempted, and what handling should happen if unsuccessful. 
 
+
+# Classes
+
+Classes should act like headings which signal what kind of related methods should be inside. The methods should relate to a single, clear responsibility. There are several reasons for creating a class:
+1. **New concept**: When there is an object that we wish to model, it makes sense to create a class to represent the object. The object can be an abstract or a real-world concept. Classes which represent abstract concepts are especially valuable, as the provide a concrete representation of the concept.
+2. **Low cohesion**: If the methods within an existing class are largely unrelated to one another, this is an indicator that the class should be split into several smaller classes with single responsibilities. Watch out for standalone methods and fields which don't interact with other methods and fields of the class; these methods are an indicator of low cohesion. If we are changing one class often in source control, it might signal the need to refactor into separate classes with higher cohesion.
+3. **Promote reuse**: Smaller, more targeted classes are easier to digest and reuse, especially because they do one thing.
+4. **Reduce complexity**: Once a part of the problem is solved, the solution details can be hidden away into a class so that the reader no longer has to keep it in mind. We can trust that the class does what it is supposed to do and move onto a different part of the problem.
+5. **Clarify parameters**: A group of related variables can be converted into something more concrete in the form of a class, making them easier to work with. 
+
+
+# Primitive obsession
+
+Passing a bunch of related primitives as parameters to a method usually shows the need for a class with the primitives as properties. Lumping these related data items helps the reader to conceptualise along with the code. The relationship becomes explicit, rather than requiring the user to make the connection. If another property is later added to the encapsulating class, we no long have to change the method signature for every method that requires the use of the new property. The use of a reference aids maintenance as we are now able to search for uses of the class rather than separate primitives.
+
+
+# Proximity principle
+
+Reading is naturally done top to bottom. We can aid readability by placing related code nearby. This helps the reader find the method being called easily, and prevents unnecessary scrolling. Methods can only be placed once, but can be called several times, but generally we should strive to keep the method definitions nearby their usage.
+
+
+# The outline rule
+
+Our code should have multiple levels of abstraction so that it looks like an outline. We can then read code at our desired level of abstraction, and only at the lowest level do we see the actual implementation details. 
