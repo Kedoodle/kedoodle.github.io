@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Clean Coding Principles in C#"
-date: 
+date: 2020-04-29
 permalink: /notes/pluralsight/csharp-clean-coding-principles
 ---
 
@@ -266,3 +266,9 @@ Comments to avoid:
 9. **Defect log**: There is no need to comment where code has changed and for what reason. These comments are redundant as the information exists in source control. We can see where code changes and for what reason by simply looking at commits. The reader does not need to know that there existed a bug which was fixed 3 years ago.
 
 Some comments are good. Short-lived `TODO` comments make it easy for developers to reach parts of the code where they want to do some additional work, but they should be used sparingly. Often there are well-meaning developers that sprawl `TODO` comments everywhere but never have the time to get around to them. Summary comments are great for providing a high-level overview of what the reader should expect to soon see, but they should only be used to add context when well-named classes and methods alone are not enough to convey intent.
+
+
+# Boy scout rule
+
+The boy scouts have a rule: "Always leave the campground cleaner than you found it." Robert C. Martin (Uncle Bob) has a similar philosophy towards code:
+> Always check a module in cleaner than when you checked it out.

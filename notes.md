@@ -19,7 +19,7 @@ I'll be writing notes here on some of the resources and experiences along my jou
 | ------ | ------ | ----- |
 | [Testing .NET Code with xUnit.net: Getting Started](https://app.pluralsight.com/library/courses/dotnet-core-testing-code-xunit-dotnet-getting-started/table-of-contents) | Jason Roberts | [14 April 2020](/notes/pluralsight/dotnet-core-testing-code-xunit-dotnet-getting-started) |
 | [Mocking in .NET Core Unit Tests with Moq: Getting Started](https://app.pluralsight.com/library/courses/moq-dot-net-core-unit-tests/table-of-contents) | Jason Roberts | [23 April 2020](/notes/pluralsight/moq-dot-net-core-unit-tests) |
-| [Clean Coding Principles in C#](https://app.pluralsight.com/library/courses/csharp-clean-coding-principles/table-of-contents) | Cory House | [Incomplete](/notes/pluralsight/csharp-clean-coding-principles)
+| [Clean Coding Principles in C#](https://app.pluralsight.com/library/courses/csharp-clean-coding-principles/table-of-contents) | Cory House | [29 April 2020](/notes/pluralsight/csharp-clean-coding-principles)
 
 
 # Workshops
