@@ -5,3 +5,19 @@ date:
 permalink: /notes/concepts/yagni
 ---
 
+# Introduction
+
+YAGNI is an acronym, originating from the [extreme programming](https://en.wikipedia.org/wiki/Extreme_programming) software development methodology, which encompasses the idea that functionality should not be programmed unless and until it is needed.
+
+By following agile methodologies, changing requirements are a normal facet of software development. If we are building functionality that we think is going to be needed later (say, 6 months down the road), the requirements are likely to have changed by the time we need it or even worse, we might not need it at all.
+
+It is important to distinguish that YAGNI applies to presumptive features and not to clean coding principles in general. We should continue to expend resources on refactoring and making our code easy to maintain. YAGNI works when code is malleable - our existing code should afford the ability to build new features when the time comes that they are needed.
+
+# Reasons for YAGNI
+
+1. **Cost of build**: It costs money to develop a feature. If we build something we don't end up needing, then the cost spent on analysing, developing, and testing the feature becomes wasted.
+2. **Cost of delay**: It is likely that there is a backlog of features that should be worked on. By working on requirements that we might need later, we are forgoing the opportunity to work on the backlog. We would sacrifice immediate value in favour of potential future value.
+3. **Cost of carry**: Building the presumptive feature introduces unnecessary complexity to the code. Until the feature becomes valuable, it is just extra code that needs to be maintained and worked around. It makes code 
+
+# References
+[Martin Fowler](https://martinfowler.com/bliki/Yagni.html)
