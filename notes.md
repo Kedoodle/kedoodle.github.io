@@ -6,11 +6,19 @@ permalink: /notes
 
 I'll be writing notes here on some of the resources and experiences along my journey.
 
+
 # Books
 
 | Title | Author | Notes |
 | ----- | ------ | ----- |
 | [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.goodreads.com/book/show/3735293-clean-code) | Robert C. Martin | [Incomplete](/notes/books/clean-code) |
+
+
+# Concepts
+
+| Concept | Notes |
+| ------- | ----- |
+| YAGNI (You Aren't Gonna Need It) | [Incomplete](/notes/concepts/yagni) |
 
 
 # Pluralsight
