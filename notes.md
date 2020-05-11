@@ -18,7 +18,7 @@ I'll be writing notes here on some of the resources and experiences along my jou
 
 | Concept | Notes |
 | ------- | ----- |
-| YAGNI (You Aren't Gonna Need It) | [Incomplete](/notes/concepts/yagni) |
+| YAGNI (You Aren't Gonna Need It) | [11 May 2020](/notes/concepts/yagni) |
 
 
 # Pluralsight
