@@ -19,7 +19,7 @@ I'll be writing notes here on some of the resources and experiences along my jou
 | Concept | Notes |
 | ------- | ----- |
 | You aren't gonna need it (YAGNI) | [11 May 2020](/notes/concepts/yagni) |
-| Command–query separation | [Incomplete](/notes/concepts/command-query-separation) |
+| Command–query separation | [11 May 2020](/notes/concepts/command-query-separation) |
 
 
 # Pluralsight
