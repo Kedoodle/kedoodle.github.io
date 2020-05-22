@@ -36,3 +36,4 @@ I'll be writing notes here on some of the resources and experiences along my jou
 | Workshop | Presenter | Notes |
 | -------- | --------- | ----- |
 | Super Humans of the Future by Culture Hero | Dara Simkin | [22 April 2020](/notes/workshops/super-humans-of-the-future) |
+| Story Mapping | Stef Kechayas | [22 May 2020](/notes/workshops/story-mapping) |
