@@ -53,6 +53,12 @@ The meaning of names often change depending on the surroundings. Add context whe
 
 # Chapter 3: Functions
 
+Functions are used for organising code. They should be easy to digest; casual reading should give an understanding for the intent of the function. 
+
+Functions allow code to be organised into differing layers of abstraction - at the highest level, the code will read like natural language while at the lowest level, the smallest of implementation details are revealed. By extracting methods out, we are able to keep functions small. This aids in readability. The different levels of abstraction also ensure that functions do one thing and one thing only.
+
+Excessive indentation is a sign that a function can have some code extracted out. By reducing code blocks within `if`, `else`, `while`, `for`, etc. statements down to one line, we can very clearly see what is going on. The one line is a function call with a descriptive name of what it does.
+
 
 # Chapter 4: Comments
 
