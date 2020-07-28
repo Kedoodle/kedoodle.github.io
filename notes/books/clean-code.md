@@ -59,6 +59,16 @@ Functions allow code to be organised into differing layers of abstraction - at t
 
 Excessive indentation is a sign that a function can have some code extracted out. By reducing code blocks within `if`, `else`, `while`, `for`, etc. statements down to one line, we can very clearly see what is going on. The one line is a function call with a descriptive name of what it does.
 
+Traversing through levels of abstraction is aided by appropriate placement of functions. A function at a higher level of abstraction should be followed immediately by the lower level functions which it calls. This makes it easy for readers to follow the code top-down.
+
+Switch statements are magnets for bad code. They do many things and are likely to grow in size. The problem is accentuated when several switch statements of similar structure are sprawled throughout the code. This can be solved through polymorphism - we can have a single switch statement which creates the appropriate polymorphic object.
+
+Function names should be chosen to represent what the function does. It sounds obvious, but naming tends to be one of the hardest things get right. When we call our function, it should do what we expect it to do based on its name.
+
+The number of arguments for a function should be minimal - zero, if at all possible. This makes understanding and testing the function much simpler. There are obvious cases where a single argument (monadic) makes sense. Two or more arguments are less common - any more would be exceptional and hard to justify.
+
+Side effects are to be avoided. We should not be making changes or doing things that are not expected. As an example, in a program for making an instant coffee, checking if the water has boiled should not also start brewing the coffee. More on command-query separation [here](/notes/concepts/command-query-separation).
+
 
 # Chapter 4: Comments
 
