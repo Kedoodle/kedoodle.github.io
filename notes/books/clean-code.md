@@ -72,6 +72,10 @@ Side effects are to be avoided. We should not be making changes or doing things 
 
 # Chapter 4: Comments
 
+Comments should be used sparingly. There are situations to where comments may be useful, such as for clarification or legal reference, but these are an exception rather than rule. The goal is to write code which is so expressive in its intent that there is no need for a comment to further explain. Each time you think of using a comment, first see if there is a way to convey it within the code itself.
+
+Comments lie. They are an additional piece of scripture which must be updated alongside the code it elaborates upon. Code changes over time but it does not lie - comments can say whatever they like, even things that do not relate to the code. Misleading comments are the worst. They set expectations which are inaccurate and can lead to a significant waste of time and energy.
+
 
 # Chapter 5: Formatting
 
