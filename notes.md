@@ -14,6 +14,13 @@ I'll be writing notes here on some of the resources and experiences along my jou
 | [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.goodreads.com/book/show/3735293-clean-code) | Robert C. Martin | [Incomplete](/notes/books/clean-code) |
 
 
+# Capture the Flags
+
+| Capture the Flag | Notes |
+| ---------------- | ----- |
+| [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) | [Incomplete](/notes/capture-the-flags/owasp-juice-shop) |
+
+
 # Concepts
 
 | Concept | Notes |
