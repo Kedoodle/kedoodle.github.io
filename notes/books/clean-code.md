@@ -79,6 +79,15 @@ Comments lie. They are an additional piece of scripture which must be updated al
 
 # Chapter 5: Formatting
 
+Apply your chosen formatting rules consistently throughout the codebase. We want our code to read as coherently as possible, with increasing levels of detail as one read further down. It should be easy to read and be so neat and organised that it is a pleasure. There is no sense in having functional code which is so difficult to read that it can never be maintained.
+
+Blank lines can be used to separate different concepts. We can clearly identify imports, namespaces, classes, and functions when they are vertically well spaced. Similarly, lines that are related should have close vertical association i.e. no unnecessary separating blank lines. 
+
+Local variables should be defined closely to where they are used. There is no point in their existence until they are used. Instance variables, on the other hand, should be grouped together and placed at the top of the class.
+
+Functions should scaffold down, with the caller above the callees. This affords natural readability of the file as the reader knows that a function will be soon defined after it is called in a higher level function.
+
+
 
 # Chapter 6: Objects and Data Structures
 
