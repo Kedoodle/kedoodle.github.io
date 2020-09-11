@@ -88,8 +88,15 @@ Local variables should be defined closely to where they are used. There is no po
 Functions should scaffold down, with the caller above the callees. This affords natural readability of the file as the reader knows that a function will be soon defined after it is called in a higher level function.
 
 
-
 # Chapter 6: Objects and Data Structures
+
+We can hide implementation details when there isn't a need to expose the finer details of data; sometimes it is better to provide an abstraction. For example, a battery might have a maximum mAh capacity and a current mAh charge. Instead of exposing these two private variables using getters, we can provide a percentage representation of the current battery level.
+
+Sometimes we don't actually want everything to be an object. Procedural code using data structures makes it easy to add new functions which apply on existing data structures, but hard to add new data structures which use existing functions. Object oriented code makes it easy to add new classes without changing existing functions, but hard to add new functions to existing classes.
+
+The Law of Demeter requires that an object should not assume knowledge of the objects it manipulates. Violations are often in the form of chained functions i.e. `a.b().c()` requires `a` to know that the object returned by `b()` has a method `c()`. We should avoid "reaching through" `b()` to access `c()`. Think about why we need `c()` in the first place and figure out if `a` can do the desired action directly without calling `c()` on `a.b()`.
+
+Data transfer objects (DTOs) are simple data structures without any functions. They're useful when communicating with databases.  Active records are like DTOs but have functionality to navigate e.g. `save`. Any additional methods should be held within a separate object which hides the internal data e.g. an instance of the active record.
 
 
 # Chapter 7: Error Handling
