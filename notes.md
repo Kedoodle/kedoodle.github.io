@@ -29,6 +29,13 @@ I'll be writing notes here on some of the resources and experiences along my jou
 | Command–query separation | [11 May 2020](/notes/concepts/command-query-separation) |
 
 
+# LinkedIn Learning
+
+| Course | Author | Notes |
+| ------ | ------ | ----- |
+| [Learning the Elastic Stack](https://www.linkedin.com/learning/learning-the-elastic-stack) | Emmanuel Henri | [Incomplete](/notes/linkedin-learning/learning-the-elastic-stack) |
+
+
 # Pluralsight
 
 | Course | Author | Notes |
