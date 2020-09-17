@@ -33,7 +33,7 @@ I'll be writing notes here on some of the resources and experiences along my jou
 
 | Course | Author | Notes |
 | ------ | ------ | ----- |
-| [Learning the Elastic Stack](https://www.linkedin.com/learning/learning-the-elastic-stack) | Emmanuel Henri | [Incomplete](/notes/linkedin-learning/learning-the-elastic-stack) |
+| [Learning the Elastic Stack](https://www.linkedin.com/learning/learning-the-elastic-stack) | Emmanuel Henri | [17 September 2020](/notes/linkedin-learning/learning-the-elastic-stack) |
 
 
 # Pluralsight

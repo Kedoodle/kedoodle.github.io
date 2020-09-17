@@ -44,3 +44,26 @@ Logstash ingests data from many different sources and sends it to a stash such a
 
 
 # Beats
+
+Beats are single-purpose data shippers which gather specific pieces of data. They then feed the gathered data either directly into Elasticsearch (when no changes are needed) or Logstash (where parsing and transforms are needed).
+
+Elastic provides some core Beats, but there are also community made Beats and an opportunity to build your own custom Beat.
+- **Filebeat**: Logs
+- **Metricbeat**: System metric data
+- **Packetbeat**: Network data
+- **Winlogbeat**: Windows event logs
+- **Auditbeat**: Audit and file integrity data 
+- **Heartbeat**: Uptime monitoring data
+- **Functionbeat**: Serverless cloud data
+
+
+# Log management
+
+The Elastic Stack can be used as a best in class log management tool. It can gather different kinds of logs from multiple systems, index them in Elasticsearch, and explore the data in Kibana. It's highly scalable and can support almost any system. Some easy examples include Windows, Mac, servers, Docker, and databases.
+
+Ultimately, good log management can lead to better decisions and realtime alerting.
+
+
+# System metrics
+
+You can monitor system metrics like CPU, RAM, and uptime with the help of Metricbeat. The system can be a laptop, desktop, server, virtual machine or even Docker container.
