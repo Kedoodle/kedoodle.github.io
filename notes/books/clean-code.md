@@ -101,3 +101,14 @@ Data transfer objects (DTOs) are simple data structures without any functions. T
 
 # Chapter 7: Error Handling
 
+Error handling is needed, but it doesn't have to be everywhere such that it obscures the actual program logic. It can be done cleanly and with grace.
+
+Exceptions should be preferred to return codes because they separate the concerns of logic and error handling by using `try-catch` blocks. A `try` block should be started whenever an exception could be thrown. This allows you to define a scope within your program - your `catch` must leave the program in a consistent state regardless of what happens in the `try`.
+
+Where checked exceptions are available (e.g. Java using `throws`), understand that their use comes at a cost. When throwing an exception at a lower level, we have to declare that exception as part of the signature of every higher level method until the `catch` which handles it. The higher level methods should not have to know about or care about the implementation details of the lower level method. Checked exceptions are not needed to produce robust software, and generally their costs outweigh the benefits.
+
+Exceptions should provide enough information with them to be able to locate where it happens and what the failure is. What was the operation that failed and what caused it to fail? 
+
+Be careful around the normal flow of the program. Sometimes you don't actually want to abort with an exception - it can create clutter while not actually being an error in the business logic. For example, where a value doesn't exist and you want to use a default value instead, you don't need to throw an exception to catch. Simply return the default value in the absence of a defined value. See the [Special Case Pattern](https://martinfowler.com/eaaCatalog/specialCase.html). 
+
+The same pattern as above should be used where returning a `null` object - return a special case object instead e.g. an empty list instead of a `null` when there is no list of objects to return. In general, avoid passing nulls around. They create the need for null checks everywhere and will inevitably lead to `null` exceptions. 
