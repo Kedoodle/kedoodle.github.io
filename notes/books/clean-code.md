@@ -112,3 +112,22 @@ Exceptions should provide enough information with them to be able to locate wher
 Be careful around the normal flow of the program. Sometimes you don't actually want to abort with an exception - it can create clutter while not actually being an error in the business logic. For example, where a value doesn't exist and you want to use a default value instead, you don't need to throw an exception to catch. Simply return the default value in the absence of a defined value. See the [Special Case Pattern](https://martinfowler.com/eaaCatalog/specialCase.html). 
 
 The same pattern as above should be used where returning a `null` object - return a special case object instead e.g. an empty list instead of a `null` when there is no list of objects to return. In general, avoid passing nulls around. They create the need for null checks everywhere and will inevitably lead to `null` exceptions. 
+
+
+# Chapter 8: Boundaries
+
+Rarely do we control or write all of the code within our software - instead, we depend on other teams (within the organisation or third-party) for certain components. The way this external code is integrated is crucial to keeping our software clean.
+
+Third-parties provide an interface that is broad and can be used by many users in all kinds of environments. When we use a third-party library, we have a specific use-case and will generally only leverage some of the available interface. By way of example, an interface with CRUD actions is useful broadly but we may not want the delete action to be accessible to all.
+
+We can avoid passing implementation detail throughout our software by encapsulating it into a class. The interface of the external dependency would then be hidden at the boundary, with only the one class handling any casting or type management. The class would also be easy to modify if the external interface were to make a breaking change.
+
+When we are exploring the use of a third-party library, time is spent reading documentation and deciding how it might be useful. Further time is then spent writing code to implement the code and determining if it is fit for purpose. Point is, it is hard to learn and implement third-party code. Doing both at the same time is even harder.
+
+An alternative strategy is to write tests to experiment and understand the third-party library. This way, we test the parts that we intend to use and avoid making breaking changes in our existing code - we might not even know if the breaking change is due to the third-party library or our implementation error. These tests are known as learning tests.
+
+Learning tests help us learn the third-party library, but also provide assurance that new releases haven't changed the expected behaviour of the library. Tests at the boundary allow us to upgrade to newer versions of third-party libraries with greater confidence.
+
+Often the other side of the boundary does not yet exist - it is unknown. By defining our own interface based on what we desire the unknown to look like, we can still work with these boundaries until the unknown is known. Once the boundary interface is known, we can write an adapter or seam to bridge the gap between the known and previous unknown. This pattern serves to separate the boundary clearly, with only one place to change if the dependency API changes.
+
+Avoid having too much knowledge of dependencies dispersed throughout your codebase. This minimises rework when dependencies change.
