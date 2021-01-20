@@ -131,3 +131,26 @@ Learning tests help us learn the third-party library, but also provide assurance
 Often the other side of the boundary does not yet exist - it is unknown. By defining our own interface based on what we desire the unknown to look like, we can still work with these boundaries until the unknown is known. Once the boundary interface is known, we can write an adapter or seam to bridge the gap between the known and previous unknown. This pattern serves to separate the boundary clearly, with only one place to change if the dependency API changes.
 
 Avoid having too much knowledge of dependencies dispersed throughout your codebase. This minimises rework when dependencies change.
+
+
+# Chapter 9: Unit Tests
+
+There is a huge push to write automated unit tests, but little direction in the subtleties to writing good tests. The three laws of Test Driven Development (no writing production code until there is a failing unit test, no writing more of a unit test than needed for it to fail, and no writing more production code than needed to pass the currently failing test) alone are not enough to write good tests. Bad tests are as good as no tests, or sometimes even worse. Test code should be maintained alongside production code to keep both clean.
+
+Tests should be as readable as production code, if not more so. We can remove a lot of detail following a Build-Operate-Check (or Arrange-Act-Assert) pattern. The tests reveal intent and avoid misleading the reader when they are refactored to be more succinct and expressive. One way to do this is to build functions and utilities which help to use the production APIs in tests.
+
+One sacrifice that we can make more often in test code is to favour readability over efficiency. For example, in an embedded system, resources are typically quite constrained. We would want to take all reasonable opportunities to reduce resource usage, whereas in a test environment we can make trade-offs fairly liberally. Keep in mind, this is a trade-off for the sake of cleanliness, not to be lazy and write poor quality code.
+
+The number of assertions per test should be minimised; ideally just one. However, when it makes sense to have multiple related assertions, it can be better to do so in the single test to avoid duplicate code. A better guideline is to keep tests to a single concept. If multiple concepts are being tested, split the test into one test per concept.
+
+The **FIRST** acronym helps keep tests clean:
+
+**Fast** - Tests should be fast such that they can be run frequently. Speed should not be a deterrent to running the tests.
+
+**Independent** - Each test should be independent of another. They should be able to be run in any order and one failing test should not cause other tests to fail.
+
+**Repeatable** - The tests should run the same in any environment. That way, the tests are always available and we know that if the tests pass in one environment e.g. local machine, they'll pass in any environment e.g. production.
+
+**Self-validating** - The test either passes or fails, and it knows so. We don't want to have to do manual evaluation of whether the test passed or failed by looking through run logs.
+
+**Timely** - Tests should be written immediately before the code that makes them pass. This avoids the trap of not writing a test at all because it's too hard to test existing code, or writing production code that is hard to test.
