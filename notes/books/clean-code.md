@@ -181,3 +181,21 @@ System architecture should be able to be test-driven, just like the code. If the
 
 Standards can be useful to use mature, demonstrated solutions, components, ideas, and solutions. They can also make recruitment of people with relevant experience easier. Standards can also be detrimental - sometimes the industry moves faster than the standards, or the standards add unnecessarily complexity to a relatively simple system. Do not lose sight of the desired outcome - value for the stakeholders - in favour of hyped up technologies and standards.
 
+
+# Chapter 12: Emergence
+
+Kent Beck's four rules of simple design facilitate the emergence of good designs by making it easier to apply principles like SRP and DIP. The rules are
+1. Runs all the tests
+2. Contains no duplication
+3. Expresses the intent of the programmer
+4. Minimises the number of classes and methods
+
+The first rule emphasises that design is just that. The design must then produce a system that demonstrably acts as intended. If there is no verification that the system works, then it fosters a lot of uncertainty. By making systems testable and running comprehensive tests, our design is pushed towards using small, single purpose classes. Similarly, it is difficult to write tests when there is tight coupling, so we are guided towards principles like dependency inversion and using interfaces, abstraction, and dependency injection when writing tests.
+
+The existence of a solid test suite empowers us to keep our code clean. The tests remove the fear of breaking our code and not knowing until later.We can be confident when refactoring knowing that we can run our tests and demonstrate that the code still works as intended.
+
+Removing duplication, even when small, reduces additional work, risk, and unnecessary complexity. As duplication is extracted, it can also reveal other opportunities to refactor e.g. we might recognise a violation of SRP and extract the violation to another class.
+
+Expressing intent is important to the long-term maintenance of a system. It is easy to understand a particular piece of code when it is being written because we are deeply involved in the problem domain at the time of writing, but when it comes to another developer reading the code later on, the code becomes much more difficult to understand. We want to reveal the intent of our code as clearly as possible to reduce the time spent trying to understand the code. Choosing good names, splitting large functions into smaller ones, using standard pattern names, and writing good tests are all ways to convey intent. Spend the time to do these things well, and review them after getting a piece of code working and before starting work on another problem.
+
+We should be pragmatic when applying principles rather than being dogmatic for the sake of it. Having too many tiny functions and methods will make it harder to maintain the codebase. While we should generally extract classes and methods to be small and concise, there is also a point where the value diminishes. This last rule takes the lowest priority, with the importance of tests, no duplication, and expressive code taking priority.
