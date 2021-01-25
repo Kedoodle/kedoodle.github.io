@@ -154,3 +154,14 @@ The **FIRST** acronym helps keep tests clean:
 **Self-validating** - The test either passes or fails, and it knows so. We don't want to have to do manual evaluation of whether the test passed or failed by looking through run logs.
 
 **Timely** - Tests should be written immediately before the code that makes them pass. This avoids the trap of not writing a test at all because it's too hard to test existing code, or writing production code that is hard to test.
+
+
+# Chapter 10: Classes
+
+Clean code requires attention to all levels of code organisation. Classes generally follow a convention in the order of which components are placed. In C#, we begin with `using` directives, followed by private member variables, constructors, properties, and methods. Private utility functions should immediately follow their calling public functions as per the step-down rule.
+
+It's one thing to get software to work and another to make it clean. As with functions, classes should be small. Small doesn't necessarily refer to a lesser amount of methods, but rather less responsibilities. This is an important concept to consider, especially with larger codebases. Classes with too many responsibilities should be extracted to several classes, each with a single responsibility. Separating out these concerns organises complexity into more manageable pieces, with developers only needing to understand the immediate concern and complexity. Contrast this to maintaining a larger, multi-purpose class, the developer would have to filter out all of the complexity that is irrelevant to the affected component.
+
+Cohesion is the extent to which the methods of the class manipulate the instance variables. We want cohesion to be high such that the methods and variables are co-dependent and are logically related. When cohesion is low, consider the purpose of the additional instance variables and methods, and determine if the class could be separated into two or more classes that are more cohesive.
+
+When we depend on an external service, we should inverse that dependency to avoid coupling our logic with their implementation detail. Instead, we should create our own abstractions to depend on such that the details depend on the abstractions instead of us depending on the details ([Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)). This way, we can write test implementations of our abstractions which are deterministic and isolated from external change e.g. dependency changes the API or the API responds differently each time, such as for a stock price ticker. If a change were to occur in the dependency, we only have to change our implementation of the interface rather than changing all places in our logic that depends on the externally changed code. This results in loose coupling.
