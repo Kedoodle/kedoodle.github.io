@@ -199,3 +199,28 @@ Removing duplication, even when small, reduces additional work, risk, and unnece
 Expressing intent is important to the long-term maintenance of a system. It is easy to understand a particular piece of code when it is being written because we are deeply involved in the problem domain at the time of writing, but when it comes to another developer reading the code later on, the code becomes much more difficult to understand. We want to reveal the intent of our code as clearly as possible to reduce the time spent trying to understand the code. Choosing good names, splitting large functions into smaller ones, using standard pattern names, and writing good tests are all ways to convey intent. Spend the time to do these things well, and review them after getting a piece of code working and before starting work on another problem.
 
 We should be pragmatic when applying principles rather than being dogmatic for the sake of it. Having too many tiny functions and methods will make it harder to maintain the codebase. While we should generally extract classes and methods to be small and concise, there is also a point where the value diminishes. This last rule takes the lowest priority, with the importance of tests, no duplication, and expressive code taking priority.
+
+
+# Chapter 13: Concurrency
+
+Chapter 13: Concurrency
+
+Clean concurrency is hard to achieve - it is much simpler to write single threaded applications. It is also common to write deceptive multithreaded applications which are broken under the hood. Good concurrency decouples what gets done from when it gets done. It creates a structure which has several smaller collaborating components rather than one main loop.
+
+Sometimes systems *have* to adopt concurrency due to time constraints. For example, an hourly scraper, but the data it scrapes continually grows over time. Eventually, the scraper has so much data to ingest that it takes over an hour to complete. We can distribute the scraping workload over several threads, allowing the system to scrape several pieces of data at once.
+
+Concurrency has some overhead in performance as well as requiring additional code. It can be difficult to implement, even for simple systems, and can even degrade performance. It requires a different design strategy compared to single threaded applications. can lead to bugs which are difficult to diagnose.
+
+Take two threads using the same counter for example. Each thread takes the value of the counter and increments it. One thread will get value `i` while the other will get `i+1` but it's also possible that the ending value of the counter would be `i+1` instead of `i+2`, depending on which thread finishes executing first. There are many possible paths of execution with most of them producing the expected result, while others may not.
+
+The Single Responsibility Principle requires a single reason to change, and concurrency should be thought of as one of those reasons. For this principle, we should keep code relating to concurrency separate from other application code.
+
+The access of shared data should be limited where needed in order to protect the critical sections of code. The number of these sections can be minimised by avoiding shared data in the first place, or treating the data as read-only. By limiting the shared objects, our code will be less likely to have concurrency related issues. It is also possible in some situations to use a copy of the shared data across each thread and then merge the results at the end. There is some creation and garbage collection overhead for using this method, but the savings of avoiding locks can be worth it.
+
+Ideally, each thread should be independent from one another and not have to share data. This way, the threads can operate without any synchronisation requirement. Try to design the system in such a way that data is separated into independent subsets, allowing the use of independent threads. Often these threads will eventually require a shared resource such as a database connection.
+
+Use the tools made available by the framework you are using. There are often thread-safe implementations of objects like lists, for example. 
+
+Graceful shutdown can be difficult to achieve. Spawned threads may be co-dependent and become locked during operation or when attempting shutdown. Think about how shutdown will be handled early into the design.
+
+Testing multithreaded code can be more difficult than single-threaded solutions. Tests should be written with the intent to expose potential problems. Threaded code is temperamental in that it can have sporadic failures - pay attention to these, as they can be indicators of threading issues rather than one-off failures. There are so many execution pathways that threading bugs can sometimes manifest once every so often.
