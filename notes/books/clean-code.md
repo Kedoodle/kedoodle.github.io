@@ -224,3 +224,12 @@ Use the tools made available by the framework you are using. There are often thr
 Graceful shutdown can be difficult to achieve. Spawned threads may be co-dependent and become locked during operation or when attempting shutdown. Think about how shutdown will be handled early into the design.
 
 Testing multithreaded code can be more difficult than single-threaded solutions. Tests should be written with the intent to expose potential problems. Threaded code is temperamental in that it can have sporadic failures - pay attention to these, as they can be indicators of threading issues rather than one-off failures. There are so many execution pathways that threading bugs can sometimes manifest once every so often.
+
+
+# Chapter 14: Successive Refinement
+
+This chapter demonstrates the refactoring and cleaning of code over time using a case study. The key takeaway is that clean code requires successive refinement - the first written working code will inevitably be dirty, but it can be cleaned.
+
+The example showed that code can also initially be relatively clean, but with the addition of "one more thing" a couple times, it can become unruly and get out of hand. Starting with just the functionality to handle `Boolean` arguments, then adding `String` and then `integer` arguments, the class grew quickly. The functions needed for each of these types of arguments are similar, just with different types. Recognising this pattern signals the need for a new class.
+
+The changes you make over time should be incremental - it is difficult to make huge changes to the structure of a program for the sake of improvement. Making such radical changes is more likely to break the program in some way. Incremental changes, with the support of a good suite of automated unit tests, are less likely to cause breakages and can be reverted where needed.
