@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Clean Code: A Handbook of Agile Software Craftsmanship"
-date: 
+date: 2021-02-03
 permalink: /notes/books/clean-code
 ---
 
