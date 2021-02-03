@@ -238,3 +238,8 @@ The changes you make over time should be incremental - it is difficult to make h
 # Chapter 15: JUnit Internals
 
 # Chapter 16: Refactoring SerialDate
+
+
+# Chapter 17: Smells and Heuristics
+
+This chapter is better read and used as a reference. It outlines many of the characteristics that manifest in dirty code and why they should be avoided where possible. Remember that responding to these smells and heuristics only guide towards clean code. The important takeaway is that clean code is achieved through software craftsmanship, not by simply following a set of rules or learning a list of heuristics. Such rules and lists will never be complete, but they imply a value system which, when manifested, leads to clean code.
