@@ -41,3 +41,14 @@ Data is persisted with persistent volumes - data is retained even through pod cr
 Secrets are a first-class citizen in Kubernetes. They are mounted as data volumes or environment variables and are specific to a particular namespace, ensuring that the scope isn't across all applications.
 
 There are other orchestrators available outside of Kubernetes. With orchestration being such a difficult problem to solve, and now with so many options around, it makes little sense to try create your own orchestrator. Alternatives include Docker Swarm, Rancher, and Mesos. There are also some scenarios where it makes sense to use a Serverless architecture instead of orchestrating containers.
+
+
+# Kubernetes Architecture
+
+The master node is responsible for the overall management of the cluster. It has an API server which exposes the control plane of the cluster. The scheduler assigns pods, as they are started, to a specific node. The controller manager helps manage controllers which run background tasks within the cluster - worker states, replication controllers for pod replicas, endpoint joining of services and pods, service account and token controllers for access management.
+
+The master node uses a simple, distributed key value store, `etcd`, to store cluster data e.g. job scheduling, pod details, state information. Interaction with the master node is done through the `kubectl` command line interface. The `kubeconfig` file has server and authentication information to allow `kubectl` to access the API server.
+
+<img src="/assets/kubernetes-architecture.png" alt="kubernetes-architecture.png" title="High level overview of the Kubernetes components"/>
+
+Worker nodes are where the containers are actually run. Each worker node has a `kubelet` process and a `kube-proxy` process. The `kubelet` communicates with the master node API server to determine if any pods have been assigned to the node. It then executes the pod containers on the container engine, mounts volumes and secrets, and relays pod and node states to the master node. The `kube-proxy` acts as the network proxy and load balancer, handling network routing and connection forwarding. Worker nodes can also be exposed to the internet, in which case the `kube-proxy` also handles that traffic, allowing end users to talk to an application deployed on the cluster.
