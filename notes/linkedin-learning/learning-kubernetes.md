@@ -52,3 +52,12 @@ The master node uses a simple, distributed key value store, `etcd`, to store clu
 <img src="/assets/kubernetes-architecture.png" alt="kubernetes-architecture.png" title="High level overview of the Kubernetes components"/>
 
 Worker nodes are where the containers are actually run. Each worker node has a `kubelet` process and a `kube-proxy` process. The `kubelet` communicates with the master node API server to determine if any pods have been assigned to the node. It then executes the pod containers on the container engine, mounts volumes and secrets, and relays pod and node states to the master node. The `kube-proxy` acts as the network proxy and load balancer, handling network routing and connection forwarding. Worker nodes can also be exposed to the internet, in which case the `kube-proxy` also handles that traffic, allowing end users to talk to an application deployed on the cluster.
+
+
+# Nodes and Pods
+
+A node is a worker machine within the cluster. It can be a physical or virtual machine. Each node must have a `kubelet` process, `kube-proxy` process, container runtime, and a process like Supervisord which can restart components. When using Kubernetes in production, the recommendation is to have at least three nodes within the cluster.
+
+Minikube is a simple way to get a lightweight cluster running on a local machine - it creates a virtual machine and deploys a single-node cluster.
+
+A pod is the simplest unit in the Kubernetes world, representing a process running on the cluster. The pod includes your Docker application container or containers, storage, **a unique IP**, and a configuration of how the container should run. You can create, deploy, and delete pods. Pods are designed to be ephemeral and disposable. It is advised to use higher-level controllers, e.g deployments, instead of pods directly. Pods have many states throughout their lifecycle - `Pending`, `Running`, `Succeeded`, `Failed`, or `CrashLoopBackOff`.
