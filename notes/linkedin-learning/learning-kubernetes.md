@@ -61,3 +61,63 @@ A node is a worker machine within the cluster. It can be a physical or virtual m
 Minikube is a simple way to get a lightweight cluster running on a local machine - it creates a virtual machine and deploys a single-node cluster.
 
 A pod is the simplest unit in the Kubernetes world, representing a process running on the cluster. The pod includes your Docker application container or containers, storage, **a unique IP**, and a configuration of how the container should run. You can create, deploy, and delete pods. Pods are designed to be ephemeral and disposable. It is advised to use higher-level controllers, e.g deployments, instead of pods directly. Pods have many states throughout their lifecycle - `Pending`, `Running`, `Succeeded`, `Failed`, or `CrashLoopBackOff`.
+# **Nodes and Pods**
+
+A node is a worker machine within the cluster. It can be a physical or virtual machine. Each node must have a `kubelet` process, `kube-proxy` process, container runtime, and a process like Supervisord which can restart components. When using Kubernetes in production, the recommendation is to have at least three nodes within the cluster.
+
+Minikube is a simple way to get a lightweight cluster running on a local machine - it creates a virtual machine and deploys a single-node cluster.
+
+A pod is the simplest unit in the Kubernetes world, representing a process running on the cluster. The pod includes your Docker application container or containers, storage, ****a unique IP****, and a configuration of how the container should run. You can create, deploy, and delete pods. Pods are designed to be ephemeral and disposable. It is advised to use higher-level controllers, e.g deployments, instead of pods directly. Pods have many states throughout their lifecycle - `Pending`, `Running`, `Succeeded`, `Failed`, or `CrashLoopBackOff`.
+
+
+# Controllers
+
+Pods are the basic building blocks in Kubernetes, but we use higher level controllers instead of pods directly. Controllers help with application reliability, scaling, and load balancing.
+
+## Deployments and ReplicaSets
+
+A `ReplicaSet` defines how many replicas of a pod should be running at all times and monitors these pods as a single unit. When the number of pods reduces below the specified count e.g. due to a pod crashing, the `ReplicaSet` controller will start up a new instance.
+
+The `Deployment` controller uses YAML files to declare the creation, and updates of, `ReplicaSets` and therefore pods. Each time a new deployment configuration is applied, a new `ReplicaSet` is created. The previous `ReplicaSet` is preserved and made available for rollback in case the new deployment is configured incorrectly.
+
+## DaemonSets
+
+A `DaemonSet` will ensure that every node in the cluster has a copy of a specific pod. As the cluster adds or removes a node, a `DaemonSet` will add or remove that pod. Removing a `DaemonSet` will remove all associated pods. Common uses are for log aggregration and monitoring.
+
+## Jobs
+
+A `Job` monitors completion of pods carrying out batched processes. Cron jobs are used to run a process at a given time and repeat at another time. 
+
+## Services
+
+A `Service` creates networking between pods across different deployments. Each `Service` is assigned a unique IP address which persists through the lifetime of the `Service`.
+
+Pods can be configured to communicate with the `Service` rather than an individual, ephemeral pod. For example, a frontend pod would depend on a backend `Service` instead of an individual backend pod which may not later exist.
+
+A `Service` can be internal (`ClusterIP`), where the IP is only reachable within the cluster, or it can be external (`NodePort`), where an endpoint is exposed on the IP of each `Node` at a static port. A `Service` can also be a `LoadBalancer` type when using an external cloud provider's load balancing capability.
+
+# Organisation
+
+## Labels
+
+A label is a key value pair attached to a Kubernetes object. The key is unique per object. Labels are used to organise the objects within the cluster in some meaningful way. They can be added at deployment or afterwards, and can be modified at any time.
+
+## Selectors
+
+Labels are powerful when used with selectors. Selectors pluck out objects based on their labels. There are equality-based selectors (equal or not equal) and set-based (in, not in, or exists). Typically, selectors are used with `kubectl` to filter objects.
+
+## Namespaces
+
+A namespace is a virtual segment of the physical cluster. Namespaces are useful for larger organisations where there are many users utilising the cluster resources - a namespace can be scoped for a particular function, team, or subset of users. Names for objects are scoped within the namespace, allowing names to be reused within the cluster. There is a `default` namespace when a cluster is created.
+
+## kubelet
+
+The `kubelet` is an agent running on each node in the cluster. It watches for pod assignments to the node, executes pod containers using the container engine, manages pod volumes and secrets, and runs status health checks against pods and the node.
+
+`kubelet` checks that the containers defined in `PodSpecs`, provided by the `kube-apiserver`, are healthy and running. Containers created outside of Kubernetes are not managed by `kubelet`.
+
+## kube-proxy
+
+The `kube-proxy` also runs on each worker node in the cluster. It reflects services, defined against the `kube-apiserver`, onto each node and forwards network traffic across backends. There are three operating modes for `kube-proxy`: `userspace` (older and fall-back mode), `iptables` (faster and current default), and `ipvs` or `kernelspace` (Windows).
+
+`kube-proxy` monitors the API server for the addition and removal of services. When a new service is detected, a random port is opened on the local node and connections to the port are proxied to an appropriate backend pod.
