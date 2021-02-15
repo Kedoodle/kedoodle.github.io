@@ -96,6 +96,7 @@ Pods can be configured to communicate with the `Service` rather than an individu
 
 A `Service` can be internal (`ClusterIP`), where the IP is only reachable within the cluster, or it can be external (`NodePort`), where an endpoint is exposed on the IP of each `Node` at a static port. A `Service` can also be a `LoadBalancer` type when using an external cloud provider's load balancing capability.
 
+
 # Organisation
 
 ## Labels
@@ -121,3 +122,22 @@ The `kubelet` is an agent running on each node in the cluster. It watches for po
 The `kube-proxy` also runs on each worker node in the cluster. It reflects services, defined against the `kube-apiserver`, onto each node and forwards network traffic across backends. There are three operating modes for `kube-proxy`: `userspace` (older and fall-back mode), `iptables` (faster and current default), and `ipvs` or `kernelspace` (Windows).
 
 `kube-proxy` monitors the API server for the addition and removal of services. When a new service is detected, a random port is opened on the local node and connections to the port are proxied to an appropriate backend pod.
+
+
+# Cluster basics
+
+We use `kubectl`, the Kubernetes command-line tool, to interact with a cluster. To run a local Kubernetes cluster, we use `minikube`.
+
+## Installation
+
+Using Homebrew, `brew install kubectl` or `brew install kubernetes-cli` to install `kubectl`. Official installation documentation [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+
+To install `minikube` using Homebrew, `brew install minikube`. Docker is required for `minikube`. Official installation documentation [here](https://minikube.sigs.k8s.io/docs/start/).
+
+# Starting a local cluster
+
+To start a local Kubernetes cluster, `minikube start`. A hypervisor is required, but `minikube` will automatically select one. This will start a `minikube` cluster and configure `kubectl` to use the `minikube` cluster. Confirm that this worked by running `kubectl get nodes` and seeing a `minikube` node running.
+
+To create a resource from a template, we run `kubectl create -f <template-file-path>`. This is imperative, whereby we tell Kubernetes explicitly to create a resource. We can also take a declarative approach using `kubectl apply -f <template-file-path>`, where we declare what end state we would like e.g. if a resource did not already exist, it would be created, but if it already exists, it would be updated.
+
+A deployment will create a `ReplicaSet` which will in turn create the necessary pods. To access the deployment, we must expose it as a service. This can be done in template or with `kubectl expose deployment <deployment-name> --type=NodePort`. We can then access the service with `kubectl service <service-name>`.
