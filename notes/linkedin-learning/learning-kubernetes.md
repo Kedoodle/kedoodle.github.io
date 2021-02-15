@@ -141,3 +141,30 @@ To start a local Kubernetes cluster, `minikube start`. A hypervisor is required,
 To create a resource from a template, we run `kubectl create -f <template-file-path>`. This is imperative, whereby we tell Kubernetes explicitly to create a resource. We can also take a declarative approach using `kubectl apply -f <template-file-path>`, where we declare what end state we would like e.g. if a resource did not already exist, it would be created, but if it already exists, it would be updated.
 
 A deployment will create a `ReplicaSet` which will in turn create the necessary pods. To access the deployment, we must expose it as a service. This can be done in template or with `kubectl expose deployment <deployment-name> --type=NodePort`. We can then access the service with `kubectl service <service-name>`.
+
+
+# Production techniques
+
+## Labels
+
+Labels are useful for tagging the various objects within your cluster to allow for better sorting, searching, and general management of objects.
+
+Labels can be applied as part templates under by adding `<key>: <value>` pairs under `metadata` > `labels`. They can also be added, updated, or removed using `kubectl label <object> <key>=<value>` where `<value>` is a `-` if the label is to be deleted. You can see labels on objects using the `--show-labels` flag when using `kubectl get` commands.
+
+Selectors can be used to select objects based on their labels. This is done using the `--selector` or `-l` flag e.g. `kubectl get pods -l env=production` would get all pods with the label `env` with value `production`. Running the same command with `delete` instead of `get` would delete those selected pods. There are other operators like `!=`, `in`, and `notin` which can help with selecting your desired objects.
+
+## Probes
+
+Probes are checks which help determine the health of a container. The `readinessProbe` checks if a container is ready, while the `livenessProbe` is used to ensure that the pod remains healthy. When the `livenessProbe` fails `failureThreshold` times, Kubernetes will try restarting the pod. After a few failures, the pod will go into a `CrashLoopBackOff` status.
+
+## Rollouts
+
+When creating or modifying resources imperatively (`create`, `set`, etc.), using the `--record` flag will record the executed command in the resource change cause annotation. 
+
+We can use the `kubectl rollout history` command on a resource to see what revisions exist and the change cause associated with each revision. We can roll back to a specific revision as so `kubectl rollout undo <object> --to-revision=<revision>`.
+
+## Basic troubleshooting
+
+The `kubectl describe <object>` command displays useful information relating to the object. The events section of this can reveal reasons and messages for what might be happening e.g. no pull access for an image repository.
+
+Finding the pod that you want to troubleshoot and then running the `kubectl logs <pod>` command will dump the pod's logs (`stdout`).  We can also run `kubectl exec -it <pod> /bin/sh` to go into the pod's shell to run commands within the pod.
