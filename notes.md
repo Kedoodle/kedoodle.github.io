@@ -33,6 +33,7 @@ I'll be writing notes here on some of the resources and experiences along my jou
 
 | Course | Author | Notes |
 | ------ | ------ | ----- |
+| [Learning Kubernetes](https://www.linkedin.com/learning/learning-kubernetes) | Karthik Gaekwad | [17 February 2021](/notes/linkedin-learning/learning-kubernetes) |
 | [Learning the Elastic Stack](https://www.linkedin.com/learning/learning-the-elastic-stack) | Emmanuel Henri | [17 September 2020](/notes/linkedin-learning/learning-the-elastic-stack) |
 
 
