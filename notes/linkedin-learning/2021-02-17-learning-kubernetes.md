@@ -168,3 +168,61 @@ We can use the `kubectl rollout history` command on a resource to see what revis
 The `kubectl describe <object>` command displays useful information relating to the object. The events section of this can reveal reasons and messages for what might be happening e.g. no pull access for an image repository.
 
 Finding the pod that you want to troubleshoot and then running the `kubectl logs <pod>` command will dump the pod's logs (`stdout`).  We can also run `kubectl exec -it <pod> /bin/sh` to go into the pod's shell to run commands within the pod.
+
+
+# Kubernetes Dashboard
+
+The Kubernetes Dashboard allows you to view the cluster at an operational level, manage and troubleshoot applications running in the cluster, and manage the cluster itself.
+
+To use the dashboard in minikube, `minikube addons enable dashboard` (also `minikube addons enable metrics-server` for metrics) and then `minikube dashboard` to open the dashboard in browser.
+
+The overview landing page shows the cluster CPU and memory usage, workload information (deployments, pods, and replica sets), services, and config.  You can easily scale resources from within the UI. Pod logs are made visible in the UI and you can even shell into the pod.
+
+
+# ConfigMaps
+
+We can use a `ConfigMap` to store application configuration as key-value pairs. This configuration can be consumed by pods as environment variables, command-line arguments, or volume files. Confidential data should not be stored in a `ConfigMap` and should be instead stored as a `Secret`.
+
+
+# Secrets
+
+Applications may require data that is more sensitive in nature, database passwords or API tokens. These should not be exposed to everyone, as would be the case if kept in the yaml. When we create a `Secret`, the values are encoded and are no longer visible in plaintext. We can use the `Secret` value in a similar way to that of values in a `ConfigMap`, but the value is only exposed to the consuming pod.
+
+
+# Jobs
+
+A `Job` runs a pod once and then stops, retaining the output of the pod (status `Completed`). A `CronJob` repeats on a schedule e.g. every hour. A `CronJob` can be suspended to stop it from running on the given schedule, and then reinstated when you want it to continue.
+
+
+# DaemonSets
+
+A `DaemonSet` ensures that each node in the cluster runs a copy of the specified pod. We can also include a `nodeSelector` for our `DaemonSet`, which will instruct Kubernetes to only run a copy of the pod in the nodes specified.
+
+
+# StatefulSets
+
+A `StatefulSet` is similar to a `Deployment` but instead manages the deployment and scaling of pods for stateful applications. The `StatefulSet` will guarantee the ordering and uniqueness of those pods - each pod has a persistent identifier.
+
+
+# Namespaces
+
+Kubernetes uses namespaces to provide multi-tenancy. You can think of a namespace as a virtual cluster within the physical cluster. Namespaces can be used to partition based on your needs - enterprise roles and responsibilities, development environments, single-tenant customer segmentation, or application partitioning.
+
+Be careful not to make namespaces too broad or too narrow. If there are many applications within one namespace, these can be grouped and put in their own namespace. Similarly creating too many namespaces, that might not be used, just adds unnecessary overhead.
+
+
+# Logging
+
+Kubernetes will automatically pick up logs from applications' `stdout` when using the `kubectl logs` command. Consider sending logs from pods to a logging platform e.g. Elasticsearch.
+
+
+# Monitoring
+
+We want to monitor and alert on cluster, node, and application (pod) health. Using cAdvisor and Prometheus, we can collect resource usage statistics and application metrics. Prometheus can also help alert upon the metrics collected. Grafana can be used to visualise the data collected by cAdvisor and Prometheus. 
+
+
+# Auth
+
+There are two kinds of users that can be authenticated with the cluster - normal, human users, and service accounts used by the Kubernetes API. Users have a string username, a unique identifier, groups (used for authorisation), and any extra fields (usually also used for authorisation).
+
+Authorisation can be attribute-based, role-based (most common), or using a webhook (`kube-apiserver` checks with your defined service to determine whether the token is authorised to perform the action). Roles can be made and then given using a `RoleBinding` (within namespace) or `ClusterRoleBinding` (cluster-wide).
