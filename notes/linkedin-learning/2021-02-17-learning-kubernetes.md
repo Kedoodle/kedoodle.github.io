@@ -61,13 +61,6 @@ A node is a worker machine within the cluster. It can be a physical or virtual m
 Minikube is a simple way to get a lightweight cluster running on a local machine - it creates a virtual machine and deploys a single-node cluster.
 
 A pod is the simplest unit in the Kubernetes world, representing a process running on the cluster. The pod includes your Docker application container or containers, storage, **a unique IP**, and a configuration of how the container should run. You can create, deploy, and delete pods. Pods are designed to be ephemeral and disposable. It is advised to use higher-level controllers, e.g deployments, instead of pods directly. Pods have many states throughout their lifecycle - `Pending`, `Running`, `Succeeded`, `Failed`, or `CrashLoopBackOff`.
-# **Nodes and Pods**
-
-A node is a worker machine within the cluster. It can be a physical or virtual machine. Each node must have a `kubelet` process, `kube-proxy` process, container runtime, and a process like Supervisord which can restart components. When using Kubernetes in production, the recommendation is to have at least three nodes within the cluster.
-
-Minikube is a simple way to get a lightweight cluster running on a local machine - it creates a virtual machine and deploys a single-node cluster.
-
-A pod is the simplest unit in the Kubernetes world, representing a process running on the cluster. The pod includes your Docker application container or containers, storage, ****a unique IP****, and a configuration of how the container should run. You can create, deploy, and delete pods. Pods are designed to be ephemeral and disposable. It is advised to use higher-level controllers, e.g deployments, instead of pods directly. Pods have many states throughout their lifecycle - `Pending`, `Running`, `Succeeded`, `Failed`, or `CrashLoopBackOff`.
 
 
 # Controllers
