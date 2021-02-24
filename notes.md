@@ -11,6 +11,7 @@ I'll be writing notes here on some of the resources and experiences along my jou
 
 | Title | Author | Notes |
 | ----- | ------ | ----- |
+| [Apprenticeship Patterns: Guidance for the Aspiring Software Craftsman](https://www.goodreads.com/book/show/5608045-apprenticeship-patterns) | David H. Hoover & Adewale Oshineye | [Incomplete](/notes/books/apprenticeship-patterns) |
 | [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.goodreads.com/book/show/3735293-clean-code) | Robert C. Martin | [3 January 2021](/notes/books/clean-code) |
 
 
