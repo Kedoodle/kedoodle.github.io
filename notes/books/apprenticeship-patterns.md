@@ -45,3 +45,13 @@ As a journeyman, responsibilities are greater and failures can be less forgiving
 ## Master
 
 At mastery, a practitioner would use their skills and knowledge to enhance that of others while also encompassing the roles of an apprentice and a journeyman. The master amplifies the skills of the people around them. A master would propel the industry forward by creating new ways of working e.g. tools that change the way software developers do their work. They would also play a key role in training journeymen to become masters in their own right and more.
+
+## Apprenticeship
+
+The cliché apprenticeship involves a young aspiring craftsman working in a blacksmith shop under an experienced master. The apprentice cleans around the shop and is sometimes involved in the forging process, but is constantly keeping an eye on what the master is doing and learning from the work being done. The apprentice becomes more involved and eventually becomes skilled enough to open their own shop, make a living, and become a master blacksmith.
+
+The modern apprenticeship, while drawing similarities from its roots, is much different. It is more focused on the mindset of recognising that the apprentice is near the beginning of their journey as a craftsman and being prepared to take the opportunities provided to create their apprenticeship.
+
+Most newcomers into the software industry will not have a formal apprenticeship and will have to make the most of their circumstances. They may face incompetent management, disengaged colleagues, relentless delivery pressure, and generally poor work environments.
+
+Apprenticeship requires actively seeking opportunities to learn. It means finding skilled developers to learn from and work alongside. It requires a desire to be more than just competent developer and to instead be a software craftsman.
