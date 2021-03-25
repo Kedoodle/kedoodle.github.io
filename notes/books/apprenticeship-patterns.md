@@ -255,3 +255,68 @@ You have followed the journey you created using [Draw Your Own Map](#draw-your-o
 **Solution**
 
 You may not stay within the craft and veer away from the road, whether temporarily or permanently. That's okay. Keep following your own map, but retain what you learned throughout your apprenticeship. Do the things that you want to do in life.
+
+
+# Chapter 4: Accurate Self-Assessment
+
+Learning quickly is good, but don't stagnate. Being slightly ahead of the curve isn't enough - that's a common occurrence in software development and leads to mediocrity. If you are the biggest fish in a small pond, seek out ponds with bigger fish.
+
+Realise that your competence is only within the realm of how far you have walked along [The Long Road](#the-long-road) so far. Find teams, organisations, and master craftsmen that are have a working proficiency higher than your imagination. Become better than you were the day before.
+
+## Be the Worst
+
+You have become one of the, if not the most, competent within your team or organisation. You've outgrown your environment and are no longer learning at your desired pace.
+
+**Solution**
+
+Find a new environment where you are the weakest member of the team. You have the most to learn when there are better developers around you.
+
+Stronger team members will improve your productivity and increase your pace of learning massively - they'll teach you in ways where you will avoid making certain mistakes and will guide you out when you do make mistakes. These learnings are less apparent when you're working with the team, but when you go to work as an individual, you'll realise how far they've brought you and how much you've learned.
+
+Take opportunities to build [Breakable Toys](#breakable-toys) in order to step back from the help of your team. Reflect on your learnings from all the [Rubbing Elbows](#rubbing-elbows) with your team.
+
+Remember that as the weakest member in your team, it is your goal to become stronger. This means that you may have to work harder than everyone else. Always look for ways to improve and learn from the team. Eventually, you'll find yourself at the same level as or surpassing your team.
+
+Don't drag your team down. Look for any opportunity to add value to the team, even if it is using the [Sweep the Floor](#sweep-the-floor) pattern and doing tedious tasks. Develop [Concrete Skills](#concrete-skills), as eventually these are the things that the team requires of you. They are taking the risk of hiring you in hopes that you will contribute more and more.
+
+## Find Mentors
+
+Know that you are not the only one that has gone through your current stage of the journey. You may be spending a lot of time looking for information or solving a problem that is trivial to those that have already experienced it. You're delving into a path with no guidance and are not sure where to go from there.
+
+**Solution**
+
+Look for people that have walked this path already. You can learn from them. Remember that we are all at different stages down the journey, and when you find a mentor, they are also at a certain point. They may not know everything, and you may eventually outgrow that mentor and not be able to learn much further from them.
+
+It can be difficult to find a mentor. They may not be interested in mentoring, or they may not have the capacity. You can be a mentor to those that are earlier on in their apprenticeship journey.
+
+## Kindred Spirits
+
+Organisations with a culture that encourage and support software craftsmanship are rare. Your organisation may be discouraging and non-conducive to your software craftsmanship journey. You may find yourself stranded amongst people that are not interested in the journey and lack mentors to guide you.
+
+**Solution**
+
+Look for like-minded people. Walking [The Long Road](#the-long-road) isn't a solitary journey. The relationship with Kindred Spirits is different to that of mentors - it is a peer relationship where you share things together and learn together. Mentees may default to using the same technologies and skills that mentors use, whereas Kindred Spirits will teach each other the things that they have discovered.
+
+Find a community and get the benefits of camaraderie. Be careful not to lean too much into the hive mind, though. You'll want to dissent when you have a differing opinion - not in a disrespectful way, but to challenge the thinking and come up with new ideas. How the community reacts to such new ideas is a good gauge as to whether it is a good place for learning.
+
+## Rubbing Elbows
+
+Mentors and kindred spirits are great, but the relationships likely exist outside of the workplace. When you're at work, you work without them by your side. You may find that your productivity and learning has slowed; that there are better approaches out there that you haven't been exposed to.
+
+**Solution**
+
+Pair with other developers and work on something together. You will learn nuances that cannot be learned outside of sitting and accomplishing a task together. These incidental learning opportunities must be created by you initiating pairing sessions.
+
+Pair programming is not aways effectively implemented. You'll find yourself lost compared to your pair and not knowing how to contribute. In these instances, ask questions. Ask to slow down and get explanations for parts that you don't understand. If the same pairing partner constantly causes you to feel lost, look for opportunities to pair with someone else.
+
+## Sweep the Floor
+
+When you start your first job or project, or even just enter a different job or project, you'll inevitably have less context than others. You may be unsure of yourself and how to contribute, and the team may also be unsure of you. You want to contribute and earn favour within the team.
+
+**Solution**
+
+Volunteer yourself for the menial tasks that others seem to not want to do. Do a good job of the task, even if the result seems trivial. It still adds value to the team. You'll also find that often the unglamorous tasks end up being the most vital. They are a great learning opportunity as they may not be taught in academia, and the experience is valuable.
+
+Tasks like maintenance, bug fixes, code review, refactoring technical debt, and documentation are all things that need to be done. Look for tasks that are at the edge and pose less risk.
+
+Do not trap yourself into a role of only doing these tasks. They're great for when you're new to a team or project, but eventually you need to delve deeper and zoom out into the bigger picture of the project.
