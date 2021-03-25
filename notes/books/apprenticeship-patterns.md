@@ -154,3 +154,104 @@ You may find yourself underwater where, for whatever reason, things aren't worki
 Temporarily retreat into a safe area where you have established competence. Build something in that safe area and recognise the abilities that you have developed in your journey to date. This is similar to taking one step back in order to take several steps forward. Be sure to actually take those steps forward as soon as possible - rebound quickly from the step back.
 
 Limit the use of this pattern using appropriate limits - timebox each usage to ensure that you do not retreat too far or too long. Get support from those around you where needed to bounce back sooner.
+
+
+# Chapter 3: Walking the Long Road
+
+This chapter is all about taking the lifelong software craftsmanship journey one step at a time. Surround yourself with people that are constantly learning and be in the learning process. Exceptional software developers will always be on the long road of learning.
+
+## The Long Road
+
+Society has moved towards instant gratification. In the software development realm, this manifests in industry fads. These fads tend to repeat mistakes that have already been made by previous generations of software developers because that knowledge is lost.
+
+You want to become a master software craftsman and build up your skills, knowledge, and competence over time. However, societal norms also pressure you to seek the highest paying jobs, push for promotions, and be on the biggest projects.
+
+**Solution**
+
+Realise that the craftsmanship journey may stray from convention, but stay the course. You know where you want to be in the long term - focus on the learning and growth opportunities that will get you there instead of maximising salary and rushing to move into leadership roles.
+
+The aspiration to become a master software craftsman requires long-term planning. All of the competencies and relationships take time to develop. Set these expectations for yourself early. Eventually though, you'll find that you will have the knowledge which surpasses any one technology  or implementation - you'll understand the core of the problem and realise that most new technologies solve the same fundamental problems.
+
+While you won't have set out to become a CTO or filthy rich, along the way you will certainly find yourself in roles with great responsibility and with appropriate compensation. These things may signify a successful journey through apprenticeship, but they simply by-products rather than the end goal.
+
+This pattern isn't to invalidate the different paths that people in this industry can take. It simply describes the road that this book advocates for. 
+
+## Craft over Art
+
+Your job is to build solutions to solve problems. There are existing, proven solutions but the problem affords you an opportunity to develop something new and impressive.
+
+**Solution**
+
+A craft is an art, but not a fine art. It produces artefacts that, primarily, are useful. Any decorative aspects are secondary, unlike in fine art where the artefact is produced solely for beauty. Crafted solutions can be beautiful, but more importantly, they must be useful.
+
+Your craftsmanship exists to build solutions for others, not to express artistic ability. You must place the interests of your customer above your own development and showing off your skills. Only this way will you advance as a craftsman, where building and maintaining relationships is key. If your creations are too beautiful and not useful enough, then you are no longer in the craft.
+
+Craftsmen must produce artefacts even when they are not in the mood or dislike the concepts. They can't wait until artistic inspiration is high. Their customers depend on satisfactory solutions that provide value.
+
+Part of this pattern is the balancing of providing satisfactory solutions and producing artefacts which meet or exceed a baseline level of quality. The more useful a solution is, the more quality it should have. Except it takes time to reach the desired level of quality, so repeated compromises will be made throughout the lifecycle of the solution. Sometimes the wrong compromise may be made, requiring refactoring of the previous work.
+
+## Sustainable Motivations
+
+ Through your time as an apprentice, you have a goal to develop your technical skills. However, the reality of the projects that you work in may be tedious, frustrating, chaotic, or generally non-conducive to keeping you motivated.
+
+**Solution**
+
+Ensure that your commitment to and motivation for software craftsmanship can be sustained in the long term. You will have extraordinary days, weeks, or even months where your job is awesome. You'll love the work that you're doing, yet you get paid for it.
+
+Outside of these periods, you'll find monotony or face tedious business problems that are poorly defined and are needlessly complicated. You'll be held back by endless bureaucracy, mismatching personalities, and difficult leadership. During these phases, it is especially important to have motivations to stay within the craft.
+
+You may be motivated purely by money and find yourself climbing the corporate ladder rather than focusing on the craft, but also wish to maintain your technical reputation. You keep working through despite some adverse aspects of the job, with the job eventually improving.
+
+You could also find motivation in making the best financial decision - you may be thinking of leaving the craft due to a lack of enjoyment, but it would be financially irresponsible to leave at the moment. You endure the lull period and rekindle the passion and enjoyment.
+
+Be careful that your motivations don't trap your progression towards mastery - you may be motivated by money, and your current skillset may be lucrative, but it could hold you back from achieving greater things and reaching a higher level of craftsmanship.
+
+## Nurture Your Passion
+
+Your job is to write code, but the work environment may not enable you to be a software craftsman and reduces your passion for it.
+
+**Solution**
+
+Put things in place to help retain your passion. Work on things that you like. If you don't have the time to do so within work, find time outside of work to. Find like-minded people - get involved with user groups, blogs, forums etc.
+
+Set boundaries on what you will work with. When these boundaries are tested, make conscious decisions to apply your principles e.g. working only the hours that you are comfortable with, maintaining your minimum code quality standards, excusing yourself from situations like abusive meetings or conversations. You may not be popular for these things, but you'll retain your passion for and longevity in the craft.
+
+## Draw Your Own Map
+
+Each organisation offers a subset of all of the possible career paths that you may take. Your employer may not provide a path which fits for you.
+
+**Solution**
+
+It is your responsibility to figure out your career direction, the next step you take, and getting where you want to be. Identify what that step is - make it ambitious, but also logical. Then, figure out how you'll get there with smaller steps and what you need to do.
+
+The smaller steps will be vital in getting the ball rolling and achieving your end goal. You can also get specific help along the way with smaller feedback cycles. Continually assess your map as you progress and as your vision changes. If you find that you and your employer's differences are hindering your ability to take the next step, look for new opportunities.
+
+## Use Your Title
+
+Through your journey as an apprentice and journeyman, you'll find yourself in jobs with titles like `Senior`, `Principal`, `Architect`, or `Lead`. You may feel as though you aren't that person. You feel as though you need to justify differences between your job title and your skills.
+
+**Solution**
+
+Your title is not who you are.
+
+These more senior titles do not mean that your apprenticeship or time as a journeyman is over. The opposite may also occur - you may not have receive the recognition in surpassing colleagues in the form of a job title. In both cases, the title reflects how your organisation perceives you and your fit.
+
+Figure out what it is that you do - write your own job description which expands upon your job title. Keep it updated and accurate to what it is that you actually do and what skills you possess. Think about how this description would look to someone outside of your role.
+
+## Stay in the Trenches
+
+Similar to [Use Your Title](#use-your-title), you may be rewarded with promotions as you progress through your software craftsmanship journey. These new roles may lead you away from the tools.
+
+**Solution**
+
+Do not be fooled when you are offered a management position - you will not be able to remain a technical manager for long. As a manager, you will not have the time to keep programming, taking you away from the craft.
+
+If you wish to stay in the craft, find or create opportunities to retain your technical skills whilst still moving up the chain e.g. technical leadership like consulting within the organisation. When offered up a promotion that you're not particularly interested in, you have a position to negotiate other rewards which better align with your desire to remain a software craftsman - not necessarily in monetary form, but also in reduced contractual constraints for example.
+
+## A Different Road
+
+You have followed the journey you created using [Draw Your Own Map](#draw-your-own-map), but it has led you astray from [The Long Road](#the-long-road).
+
+**Solution**
+
+You may not stay within the craft and veer away from the road, whether temporarily or permanently. That's okay. Keep following your own map, but retain what you learned throughout your apprenticeship. Do the things that you want to do in life.
