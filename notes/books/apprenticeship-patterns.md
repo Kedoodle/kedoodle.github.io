@@ -320,3 +320,118 @@ Volunteer yourself for the menial tasks that others seem to not want to do. Do a
 Tasks like maintenance, bug fixes, code review, refactoring technical debt, and documentation are all things that need to be done. Look for tasks that are at the edge and pose less risk.
 
 Do not trap yourself into a role of only doing these tasks. They're great for when you're new to a team or project, but eventually you need to delve deeper and zoom out into the bigger picture of the project.
+
+
+# Chapter 5: Perpetual Learning
+
+Learning is at the core of apprenticeship, and the mark of a successful apprentice is in utilising their learning ability. An apprentice must continually learn, even when faced with complexities and challenges at work. In addition to learning new skills, they must also learn how to learn. Upon progressing to a journeyman, or even mastery, one must set aside their expertise in order to open up opportunities to learn a new domain.
+
+The patterns in this chapter focus on how to learn and how to improve that learning. Use them throughout your career as you see fit. They will all help with exposing new information and gaining new knowledge.
+
+## Expand Your Bandwidth
+
+As an apprentice, you will pick up basic skills early on in your day-to-day work. However, these skills will be low-level and focused only on what you have worked on, giving a narrow understanding of software development.
+
+**Solution**
+
+Information is absorbed by the apprentice initially at a slow and steady rate, though it may seem like a torrent. With such a vast amount of information available in the craft, at some point the apprentice must traverse the expanse.
+
+Apprentices must expand their ability to take in this information - they must be disciplined and develop techniques that help them to understand information, as well as retain and apply it.
+
+The pattern requires apprentices to seek out information and knowledge from multiple, varied mediums e.g. blogs, Twitter, mailing lists, user groups, conferences, books, and other online resources. It means engaging with these resources in deeper ways than simply reading it and forgetting about it.
+
+Once you have developed the techniques to Expand Your Bandwidth, you must understand when to apply the pattern. There is a trade-off between consuming the wealth of information available and software development time. Too much learning time means little development time. Strike the right balance given your current workload and context.
+
+## Practice, Practice, Practice
+
+Your day to day programming activities require you to minimise mistakes, but you want to develop your existing skills and form new [Concrete Skills](#concrete-skills).
+
+**Solution**
+
+Set aside time for intentional practice in a safe environment where you are able to make mistakes freely.
+
+The concept of a code kata is to create a practice exercise where you are removed from stresses like release deadlines, production incidents, distractions, and interruptions. Instead, you're placed an environment created specifically for you to practice your craft.
+
+These exercises can be simple and generic, or more complex and niched. The point is, you are able to relax and take the time to discover nuances of the craft that you may not have the opportunity to discover in production codebases. You can do the kata repeatedly in different ways. You are free to try different techniques and learn the advantages and disadvantages. 
+
+Seek out these exercises or create your own. Ensure that it's not so simple that you can't learn anything, but not so difficult that you can't solve it. Solve the exercise several times, noting the differences in your solutions over time.
+
+## Breakable Toys
+
+Your work environment is not suitable for failing - the consequences are high. Except some things are best learned through trying and failing. You must attempt bold solutions and learn from mistakes in order to become a craftsman capable of succeeding in the face of difficult problems.
+
+**Solution**
+
+Create "toy" systems that are similar in tech (but not scope) to the systems you build at work. You can also build toy systems that have no relevance to the tech you use at work. The systems could be useful to you e.g. a personal wiki, note bank etc. You can cater your solutions to suit your personal needs, perhaps even better than a generic off-the-shelf solution.
+
+The point is, these projects provide you with systems to try new things on and are comfortable with failing in as you're the only one impacted by any downtime. These toys can be carried with you throughout your career, agnostic of any employment changes. Ensure that you maintain your high software craftsmanship standards. The projects can embody your craft.
+
+## Use the Source
+
+The code is the single source of truth in software; the author's intent for the piece of software may differ, but the code is what actually determines the behaviour. Using the [Practice, Practice, Practice](#practice-practice-practice) pattern in isolation can lead to the formation of bad habits that you may not even be aware of. You need good examples that you can refer to and learn from.
+
+**Solution**
+
+Read other people's code. Read the code behind the tools and applications that you use. In doing this, you can emulate their coding practices and begin to understand the thought processes behind the code. You'll come to realise that the people that built these tools and applications were also once apprentices, and are not inherently better than you or special compared to you. Reading code well is a skill that is instrumental to optimising your work day.
+
+Download open source projects and go through the version history. You'll discover decisions that were made by examining the structure of the codebase. Try to refactor a piece of the code and figure out why these decisions were made. At some point you may find a decision that you disagree with. Try to determine if there is a missing piece of information either on your side or the author's.
+
+You should also find people that are willing to read your code. They can provide another perspective and feedback - be sure to filter out their personal behaviours that may not be in the best software craftsmanship principles. Do the same for other people - sharing code and learning together is valuable.
+
+Join teams that practice pair programming and code reviews. If your team doesn't already, you can try implement these practices if they are willing. Academia glosses over the fact that programmers will spend more time reading code than writing it. Every piece of code that you read can teach you something, whether it is good or bad code. You'll learn the idioms and subtleties of languages, as well as pick up new tricks (e.g. data structures, algorithms) that you can apply in your code. 
+
+## Reflect As You Work
+
+Through your working career, you'll find yourself being promoted to roles higher up the ladder. As you move up, you may remain waiting for the day that you actually feel experienced.
+
+**Solution**
+
+Regularly reflect on your work. Think about the practices that you use - are they novel and innovative, or are they dated and becoming obsolete? Are there things in your team that you especially like or dislike? How did these things come to be and how can they be retained or improved?
+
+You can also reflect on other people around you - by observing and reflecting on the journeymen and master craftsmen you work with, you can glean practices that they use. You can discover those novel and innovative practices and techniques by watching those around you.
+
+## Record What You Learn
+
+You may learn the same thing more than once, but it doesn't stick. You recall doing these things but you don't know the finer details.
+
+**Solution**
+
+Form some kind of written record of your software craftsmanship journey - a journal, wiki, or blog. This record will always exist for you to refer back to. If your record exists publicly, you may even get links to your own resources when you use a search engine. It can also help others facing similar situations.
+
+The records should be treated as a living resource - regularly reflect on the lessons and thoughts that you note down. Review what you've written, make new connections, and re-establish practices that you may have forgotten.
+
+## Share What You Learn
+
+Once you are further into your apprenticeship, the experience that you've gained becomes valuable to others and you become a source of knowledge. Your focus as a craftsman has been on yourself, but to become a journeyman you need to be effective at communicating with others and bringing them up to speed.
+
+**Solution**
+
+Get into the habit of sharing your lessons. Write a blog, run brown bags, make presentations at conferences, write tutorials etc. These things aren't easy, especially as an apprentice, but you'll come to realise that other apprentices value this kind of sharing. You have similar levels of experience to them and have the opportunity to demystify complexity for your peers without assuming prior knowledge that more experienced developers may take for granted.
+
+Be careful not to share things that shouldn't be shared - for example trade secrets, or lessons learned from your team members or employer that they'd prefer kept in a tighter circle.
+
+## Create Feedback Loops
+
+You don't know if you're experiencing "[unconscious incompetence]([https://en.wikipedia.org/wiki/Four_stages_of_competence](https://en.wikipedia.org/wiki/Four_stages_of_competence))" or not - you may not recognise that you are lacking a particular set of skills. You also find it difficult to gauge your own skill and the skill of those around you. Whether you succeed or fail is often a mystery and the outcome comes as a surprise.
+
+Your ability to assess yourself is relative to your previous self - it lacks objectivity as there is no external comparison. Your view of your own abilities can be skewed in either direction.
+
+**Solution**
+
+Create mechanisms for regular, external, objective feedback. This feedback should be timely, regular, and effective such that you can become conscious of your incompetence sooner.
+
+There are several levels of feedback mechanisms. At a low level, there's test-driven-development, typed languages with interactive interpreters, and tools like IntelliSense and ReSharper. Another level includes code reviews and pair programming. You could also explicitly ask people how they think you're doing and their opinion - e.g. from interviewers.
+
+The other side of the feedback loop is for you to process the information. You must receive and filter the useful feedback out from the fluff. You can also get bad feedback that is well-meaning, but is actually discouraging or outdated e.g. don't do this, you'll never succeed if you do this, do this because that's what I did when I was your age.
+
+Useful feedback is actionable. You can do something or change a behaviour accordingly. Feedback can encourage you to do more of something or do less of something. A successful apprentice creates small feedback loops such that they can make these small adjustments.
+
+An apprentice must withhold from defending their current knowledge such that they can listen without interrupting what is being taught.
+
+## Learn How You Fail
+
+Failure happens. If you don't fail, you're not pushing your boundaries enough or you're not recognising your mistakes. As an apprentice, your successes will expand as you learn, but you may still have weaknesses that have been left unattended.
+
+**Solution**
+
+Actively look out for the ways that you are failing and try to address those that are worth fixing. Learn about the things that lead you to failure - certain patterns, behaviours, conditions, habits etc. Some failures need to be accepted - they may be things that you're just not good at, or that the time invested in fixing them are too great for what benefit you'd get.
