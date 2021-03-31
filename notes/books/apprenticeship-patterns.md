@@ -435,3 +435,60 @@ Failure happens. If you don't fail, you're not pushing your boundaries enough or
 **Solution**
 
 Actively look out for the ways that you are failing and try to address those that are worth fixing. Learn about the things that lead you to failure - certain patterns, behaviours, conditions, habits etc. Some failures need to be accepted - they may be things that you're just not good at, or that the time invested in fixing them are too great for what benefit you'd get.
+
+
+# Chapter 6: Construct Your Curriculum
+
+Information is abundant. The Internet brings a wealth of knowledge, but there are some pieces of information that are best found in books. You should supplement blogs, articles, tutorials etc. with books. There are no assigned books for your apprenticeship because it's *your* apprenticeship - you need to find the books that will help you the most in your journey and construct your own curriculum.
+
+## Reading List
+
+You've had a bit of experience, but you've also discovered how much information is out there that you still need to learn. You're finding books to read faster than you can read them.
+
+**Solution**
+
+Keep a list of the books that you want to read. This doesn't serve just as a prioritisation list, but you can also reflect on your past readings and identify any patterns and gaps in your learning. Books will refer to other books - those that you see often are probably worth prioritising. Some books will also recommend a whole list of books - these lists are especially valuable as a starting point when you're not sure what to read.
+
+Often you'll need knowledge to understand which order you should read certain books. It's paradoxical in that you need to read the books to gain that knowledge. To solve this, start with a book which approaches the topic with a broader lens, and then read more specialist books as you see fit.
+
+## Read Constantly
+
+There are so many fundamental concepts that you can't possibly know them all as an apprentice. You may be proficient in some, but others elude you.
+
+**Solution**
+
+Consume as much written content as you possibly can, with emphasis on books over blogs or other content. When you have the opportunity and capacity to read more books, take it - these are the things that will distinguish you from a mediocre programmer. Being consistent is key - reading a book every month or two adds up to a wealth of knowledge over time. Keep a book on hand such that you can fill in the little bits of time you have throughout the day with reading.
+
+## Study the Classics
+
+Your education may not have covered the theory books that are widely read - the books that experienced people around you regularly refer to.
+
+**Solution**
+
+Note down when a concept is brought up and ask what book it's from. Note it down in your [Reading List](#reading-list). 
+
+Be careful not to get stuck into only classics - some may withstand the test of time, while others were contemporary when written but are no longer relevant. Mix in more modern content alongside the classics that have aged well.
+
+## Dig Deeper
+
+At work, your delivery obligations mean that you only do enough research to get the job done. You make decisions without the full knowledge surrounding the tool - instead simply getting by using the examples provided. You learn just enough about a system to get your part done.
+
+Maintenance of your code becomes increasingly more difficult because of these decisions made with little knowledge. Corners were cut and technical debt has amassed. The superficial knowledge gained during implementation is insufficient to triage small bugs or when deeper knowledge is required. You may not even realise how little you know until you're put to the test.
+
+**Solution**
+
+Acquire deeper knowledge in the tools and technologies that you are using. You should understand why the things are the way that they are - why is it designed in the way that it is. Digging deeper means that you'll be able to explain deeper than just the surface of the systems you're working with. It'll distinguish you as a candidate during interview processes. It'll set you up to build software that lasts.
+
+One way to dig deeper is to go to primary sources. Often information is lost in translation, including the original intentions and problems that were being targeted. Cut out the middlemen and go read specifications, RFCs, etc.
+
+Applying this pattern regularly will set you apart you from other programmers. You'll truly understand how your tools work. You'll be selected for more complex problems - this means you'll shine brighter but also likely fail more often. Use this as an opportunity to apply the [Be Your Worst](#be-your-worst) pattern.
+
+## Familiar Tools
+
+Every engagement you are on will have it's own nuances, tools, technologies etc. Working on a project will involve new colleagues, roles, business domains etc. Within all this, you need some consistency and reliability so that you can provide good estimates with your work.
+
+**Solution**
+
+Familiarise yourself with a set of tools; know the ins and outs of these tools. They become your toolkit that is portable with you across jobs, projects, and organisations. These tools make you the most productive when you're on a new engagement - you already know what to do when you face certain issues.
+
+Don't become completely reliant on these tools, however. Sometimes the best tool for the job isn't one that you're familiar with. and you'll use the same tool for every job. You may even find that your tool is no longer useful as they've been rendered obsolete by a newer tool. Ensure to update your toolbox.
